@@ -15,7 +15,7 @@ namespace EonnAuto.Infastructure
         {
             _db = db;
         }
-        public IQueryable<Vehicle> GetVehicleFromuser(string userName)
+        public IQueryable<Vehicle> GetVehicleForuser(string userName)
         {
             return from v in _db.Vehicles
                    where v.User.UserName == userName

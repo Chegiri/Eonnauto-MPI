@@ -15,9 +15,11 @@ namespace EonnAuto.Infastructure
         {
             _db = db;
         }
-        public IQueryable<Inspection> GetInspectionFromvehicle(string vehicle)
+        public IQueryable<Inspection> GetInspectionForvehicle(int vehicleId)
         {
             return from i in _db.Inspections
+                   where i.VehicleId == vehicleId
+                   select i;
                    
         }
         
