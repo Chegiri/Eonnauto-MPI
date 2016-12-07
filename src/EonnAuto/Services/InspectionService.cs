@@ -23,6 +23,7 @@ namespace EonnAuto.Services
                     select new InspectionDTO()
                     {
                         Id = i.Id,
+                        VehicleId = i.VehicleId,
                         Date = i.Date,
                         Mileage = i.Mileage,
                         Brake = i.Brake,

@@ -24,12 +24,40 @@ namespace EonnAuto.Services
             return (from v in _vehicileRepo.GetVehicleForuser(userName)
                     select new VehicleDTO()
                     {
+                        Id = v.Id,
                         Year = v.Year,
                         Make = v.Make,
                         Model = v.Model,
                         Trim = v.Trim,
-                        EngSize = v.EngSize
+                        EngSize = v.EngSize,
                     }).ToList();
+        }
+        public VehicleDTO PersonalVehicle(int Id, string user)
+        {
+            return (from v in _vehicileRepo.GetVehicleById(Id, user)
+                    select new VehicleDTO()
+                    {
+                        Id = v.Id,
+                        Year = v.Year,
+                        Make = v.Make,
+                        Model = v.Model,
+                        Trim = v.Trim,
+                        EngSize = v.EngSize,
+                        Inspection = (from i in v.Inspection
+                                      select new InspectionDTO
+                                      {
+                                          Id = i.Id,
+                                          VehicleId = i.VehicleId,
+                                          Date = i.Date,
+                                          Mileage = i.Mileage,
+                                          Brake = i.Brake,
+                                          Rotor = i.Rotor,
+                                          Tire = i.Tire,
+                                          Shock = i.Shock
+
+                                      }).ToList()
+
+                    }).FirstOrDefault();
         }
     }
 }
