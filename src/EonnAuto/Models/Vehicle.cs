@@ -10,7 +10,7 @@ namespace EonnAuto.Models
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; } [ForeignKey("ApplicationUserId")]
+        public string UserId { get; set; } [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
 
         public int Year { get; set; }
@@ -19,6 +19,6 @@ namespace EonnAuto.Models
         public string Trim { get; set; }
         public string EngSize { get; set; }
 
-        public ICollection<Inspection> Inspection { get; set; }
+        public ICollection<Inspection> Inspections { get; set; }
     }
 }

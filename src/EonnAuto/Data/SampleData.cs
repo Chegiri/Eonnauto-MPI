@@ -50,9 +50,9 @@ namespace EonnAuto.Data
 
             // EONNAUTO CODE
             var db = serviceProvider.GetRequiredService<ApplicationDbContext>();
-            if (!db.Vehicle.Any())
+            if (!db.Vehicles.Any())
             {
-                db.Vehicle.AddRange(
+                db.Vehicles.AddRange(
                     new Vehicle
                     {
                         User = mike,
@@ -61,7 +61,7 @@ namespace EonnAuto.Data
                         Model = "TL",
                         Trim = "Technology",
                         EngSize = "2.4L",
-                        Inspection = new List<Inspection>
+                        Inspections = new List<Inspection>
                     {
                         new Inspection {
                             Date = DateTime.Now,
@@ -82,7 +82,7 @@ namespace EonnAuto.Data
                     Model = "Accord",
                     Trim = "EX",
                     EngSize = "3.6",
-                    Inspection = new List<Inspection>
+                    Inspections = new List<Inspection>
                     {
                         new Inspection {
                             Date = DateTime.Now,

@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿
+<div ng-repeat="inspection in controller.vehicle.inspection">
+   Date: {{inspection.date | date: 'MMMM d, yyyy'}} 
+    <br />
+    Mileage: {{inspection.mileage}}
+    <br />
+    Brake: {{inspection.brake}}
+    <br />
+    Rotor: {{inspection.rotor}}
+    <br />
+    Tire: {{inspection.tire}}
+    <br />
+    Shock: {{inspection.shock}}
+</div>

@@ -1,0 +1,15 @@
+﻿<div>
+    <h3 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h3>
+
+    <div class="col-lg-3" ng-repeat="vehicle in controller.vehicles" ui-sref="detail({id: vehicle.id})">
+
+        <h3>{{vehicle.year}}</h3>
+        <h3>{{vehicle.make}}</h3>
+        <h3>{{vehicle.model}}</h3>
+        <h3>{{vehicle.trim}}</h3>
+        <h3>{{vehicle.engsize}}</h3>
+
+
+    </div>
+
+</div>

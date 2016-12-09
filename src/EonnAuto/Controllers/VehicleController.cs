@@ -28,6 +28,13 @@ namespace EonnAuto.Controllers
         {
             return _vehicleService.PersonalVehicle(id, User.Identity.Name);
         }
+        [HttpGet]
+        [Authorize]
+
+        public IEnumerable<VehicleDTO> Get()
+        {
+            return _vehicleService.GetVehicleForUser(User.Identity.Name);
+        }
     }
 
 }

@@ -9,6 +9,6 @@ namespace EonnAuto.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
-        public ICollection<Vehicle> Vehicle { get; set; }
+        public ICollection<Vehicle> Vehicles { get; set; }
     }
 }

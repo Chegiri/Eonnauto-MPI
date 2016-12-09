@@ -1,6 +1,19 @@
 namespace EonnAuto.Controllers {
 
     export class HomeController {
+        public message = 'Welcome To EONNAUTO'
+    }
+
+    export class SecretController {
+        public secrets;
+
+        constructor($http: ng.IHttpService) {
+            $http.get('/api/secrets').then((results) => {
+                this.secrets = results.data;
+            });
+        }
+    }
+    export class MyCarController {
 
         public vehicles;
         public vehicleResource;
@@ -14,21 +27,11 @@ namespace EonnAuto.Controllers {
                 this.vehicle = null;
                 this.getVehicles();
             });
-            
+
         }
         constructor(private $resource: angular.resource.IResourceService) {
-            this.vehicleResource = $resource('/api/vehicles/:id');
+            this.vehicleResource = $resource('/api/vehicle/:id');
             this.getVehicles();
-        }
-    }
-
-    export class SecretController {
-        public secrets;
-
-        constructor($http: ng.IHttpService) {
-            $http.get('/api/secrets').then((results) => {
-                this.secrets = results.data;
-            });
         }
     }
     export class AboutController {
@@ -40,7 +43,7 @@ namespace EonnAuto.Controllers {
 
         constructor(private $http: ng.IHttpService, private $stateParams:
             ng.ui.IStateParamsService) {
-            $http.get(`/api/vehicles/${$stateParams['id']}`)
+            $http.get(`/api/vehicle/${$stateParams['id']}`)
                 .then((response) => {
                     this.vehicle = response.data;
                     console.log(this.vehicle);

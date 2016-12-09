@@ -114,7 +114,7 @@ namespace EonnAuto
 
            // initialize sample data
            SampleData.Initialize(app.ApplicationServices).Wait();
-
+            
         }
     }
 }

@@ -43,7 +43,7 @@ namespace EonnAuto.Services
                         Model = v.Model,
                         Trim = v.Trim,
                         EngSize = v.EngSize,
-                        Inspection = (from i in v.Inspection
+                        Inspection = (from i in v.Inspections
                                       select new InspectionDTO
                                       {
                                           Id = i.Id,

@@ -19,6 +19,18 @@ namespace EonnAuto {
                 controller: EonnAuto.Controllers.SecretController,
                 controllerAs: 'controller'
             })
+            .state('mycar', {
+                url: '/mycar',
+                templateUrl: '/ngApp/views/mycar.html',
+                controller: EonnAuto.Controllers.MyCarController,
+                controllerAs: 'controller'
+            })
+            .state('detail', {
+                url: '/detail/:id',
+                templateUrl: '/ngApp/views/detail.html',
+                controller: EonnAuto.Controllers.DetailController,
+                controllerAs: 'controller'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: '/ngApp/views/login.html',
