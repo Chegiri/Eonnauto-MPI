@@ -35,6 +35,16 @@ namespace EonnAuto.Controllers
         {
             return _vehicleService.GetVehicleForUser(User.Identity.Name);
         }
+        [HttpPost]
+        public IActionResult Add([FromBody] VehicleDTO vehicle)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            _vehicleService.AddVehicle(vehicle, User.Identity.Name);
+            return Ok();
+        }
     }
 
 }

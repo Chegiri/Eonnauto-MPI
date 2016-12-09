@@ -59,5 +59,33 @@ namespace EonnAuto.Services
 
                     }).FirstOrDefault();
         }
+
+        public void AddVehicle(VehicleDTO vehicle, string currentUser)
+        {
+            Vehicle dbVehicle = new EonnAuto.Models.Vehicle()
+            {
+                Id = vehicle.Id,
+                Year = vehicle.Year,
+                Make = vehicle.Make,
+                Model = vehicle.Model,
+                Trim = vehicle.Trim,
+                EngSize = vehicle.EngSize,
+                UserId = _userRepo.GetUser(currentUser).First().Id
+            };
+            _vehicileRepo.Add(dbVehicle);
+        }
+        public VehicleDTO FindById(int id, string user)
+        {
+            return (from v in _vehicileRepo.GetVehicleById(id, user)
+                    select new VehicleDTO
+                    {
+                        Id = v.Id,
+                        Year = v.Year,
+                        Make = v.Make,
+                        Model = v.Model,
+                        Trim = v.Trim,
+                        EngSize = v.EngSize
+                    }).FirstOrDefault();
+        }
     }
 }

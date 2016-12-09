@@ -20,13 +20,18 @@ namespace EonnAuto.Controllers
         {
             _inspectionService = ins;
         }
-        //[HttpGet("{id}")]
-        //public InspectionDTO GetById(int Id)
-        //{
-        //    return _inspectionService.FindById(Id, ve)
-        //}
 
-       
+
+       [HttpPost]
+       public IActionResult Add([FromBody] InspectionDTO inspection)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            _inspectionService.AddInspection(inspection, User.Identity.Name);
+            return Ok();
         }
     }
+}
     

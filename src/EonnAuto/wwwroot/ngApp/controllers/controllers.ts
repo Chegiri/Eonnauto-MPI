@@ -40,6 +40,16 @@ namespace EonnAuto.Controllers {
 
     export class DetailController {
         public vehicle;
+        //public vehicleResource;
+
+        //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
+        //    //this.vehicle = this.getVehicle($stateParams['id']);
+        //    this.vehicleResource = $resource('/api/vehicle/:id');
+        //    this.getVehicle($stateParams['id']);
+        //    console.log(this.vehicleResource);
+        //}
+        //public getVehicle(id) {
+        //    return this.vehicleResource.get({ id: id });
 
         constructor(private $http: ng.IHttpService, private $stateParams:
             ng.ui.IStateParamsService) {
@@ -48,7 +58,8 @@ namespace EonnAuto.Controllers {
                     this.vehicle = response.data;
                     console.log(this.vehicle);
                 });
+
         }
     }
-
 }
+

@@ -1,6 +1,6 @@
 ﻿
 <div ng-repeat="inspection in controller.vehicle.inspection">
-   Date: {{inspection.date | date: 'MMMM d, yyyy'}} 
+    Date: {{inspection.date | date: 'MMMM d, yyyy'}}
     <br />
     Mileage: {{inspection.mileage}}
     <br />
@@ -12,3 +12,19 @@
     <br />
     Shock: {{inspection.shock}}
 </div>
+    <hr />
+
+    <h1>Add New Inspection</h1>
+    <form ng-submit="controller.save">
+        <div>
+            <input type="text" ng-model="controller.inspection.mileage" placeholder="mileage" />
+            <input type="text" ng-model="controller.inspection.brake" placeholder="brake" />
+            <input type="text" ng-model="controller.inspection.rotor" placeholder="rotor" />
+            <input type="text" ng-model="controller.inspection.tire" placeholder="tire" />
+            <input type="text" ng-model="controller.inspection.shock" placeholder="shock" />
+
+            <input type="submit" value="save" />
+
+        </div>
+    </form>
+

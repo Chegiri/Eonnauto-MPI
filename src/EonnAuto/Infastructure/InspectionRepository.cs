@@ -19,8 +19,12 @@ namespace EonnAuto.Infastructure
         {
             return from i in _db.Inspections
                    where i.VehicleId == vehicleId
-                   select i;
-                   
+                   select i;          
+        }
+        public void Add(Inspection inspection)
+        {
+            _db.Inspections.Add(inspection);
+            _db.SaveChanges();
         }
         
     }
