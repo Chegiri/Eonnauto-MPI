@@ -40,6 +40,7 @@ namespace EonnAuto.Controllers {
 
     export class DetailController {
         public vehicle;
+        public inspection;
         //public vehicleResource;
 
         //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
@@ -58,7 +59,12 @@ namespace EonnAuto.Controllers {
                     this.vehicle = response.data;
                     console.log(this.vehicle);
                 });
-
+        }
+        public addInspection(inspection) {
+            this.$http.post(`/api/inspection`, inspection)
+                .then((response) => {
+                    this.inspection = response.data;
+                });
         }
     }
 }

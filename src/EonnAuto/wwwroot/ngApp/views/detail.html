@@ -15,13 +15,13 @@
     <hr />
 
     <h1>Add New Inspection</h1>
-    <form ng-submit="controller.save">
+    <form ng-submit="controller.addInspection(inspection)">
         <div>
-            <input type="text" ng-model="controller.inspection.mileage" placeholder="mileage" />
-            <input type="text" ng-model="controller.inspection.brake" placeholder="brake" />
-            <input type="text" ng-model="controller.inspection.rotor" placeholder="rotor" />
-            <input type="text" ng-model="controller.inspection.tire" placeholder="tire" />
-            <input type="text" ng-model="controller.inspection.shock" placeholder="shock" />
+            <input type="text" ng-model="inspection.mileage" placeholder="mileage" />
+            <input type="text" ng-model="inspection.brake" placeholder="brake" />
+            <input type="text" ng-model="inspection.rotor" placeholder="rotor" />
+            <input type="text" ng-model="inspection.tire" placeholder="tire" />
+            <input type="text" ng-model="inspection.shock" placeholder="shock" />
 
             <input type="submit" value="save" />
 

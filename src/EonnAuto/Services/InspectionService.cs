@@ -38,7 +38,7 @@ namespace EonnAuto.Services
             Inspection dbInspection = new EonnAuto.Models.Inspection()
             {
                 Id = inspection.Id,
-                VehicleId = inspection.VehicleId,
+                VehicleId = _vehicleRepo.GetVehicleById(inspection.VehicleId, currentUser).First().Id,
                 Date = inspection.Date,
                 Mileage = inspection.Mileage,
                 Brake = inspection.Brake,
