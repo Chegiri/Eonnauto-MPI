@@ -23,12 +23,13 @@ namespace EonnAuto.Controllers
 
 
        [HttpPost]
-       public IActionResult Add([FromBody] InspectionDTO inspection)
+       public IActionResult Add([FromBody] InspectionDTO inspection, int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            inspection.VehicleId = id;
             _inspectionService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }

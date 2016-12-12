@@ -18,6 +18,7 @@ namespace EonnAuto.Controllers {
         public vehicles;
         public vehicleResource;
         public vehicle;
+        public inspection;
 
         public getVehicles() {
             this.vehicles = this.vehicleResource.query();
@@ -29,10 +30,18 @@ namespace EonnAuto.Controllers {
             });
 
         }
-        constructor(private $resource: angular.resource.IResourceService) {
+        constructor(private $resource: angular.resource.IResourceService, private $http: ng.IHttpService, private $stateParams:
+            ng.ui.IStateParamsService) {
             this.vehicleResource = $resource('/api/vehicle/:id');
             this.getVehicles();
         }
+        public addInspection(inspection) {
+            this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
+                .then((response) => {
+                    this.inspection = response.data;
+                });
+        }
+
     }
     export class AboutController {
         public message = 'Hello from the about page!';
