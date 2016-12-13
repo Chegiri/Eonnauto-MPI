@@ -62,7 +62,7 @@ namespace EonnAuto.Controllers {
         //    return this.vehicleResource.get({ id: id });
 
         constructor(private $http: ng.IHttpService, private $stateParams:
-            ng.ui.IStateParamsService) {
+            ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
             $http.get(`/api/vehicle/${$stateParams['id']}`)
                 .then((response) => {
                     this.vehicle = response.data;
@@ -70,9 +70,10 @@ namespace EonnAuto.Controllers {
                 });
         }
         public addInspection(inspection) {
-            this.$http.post(`/api/inspection`, inspection)
+            this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
                 .then((response) => {
                     this.inspection = response.data;
+                    this.$state.reload();
                 });
         }
     }

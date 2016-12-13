@@ -32,7 +32,7 @@ namespace EonnAuto.Controllers
         }
 
         [HttpPost("{id}/inspection")]
-        public IActionResult Add([FromBody] InspectionDTO inspection, int id)
+        public IActionResult Add(int id, [FromBody] InspectionDTO inspection)
         {
             if (!ModelState.IsValid)
             {

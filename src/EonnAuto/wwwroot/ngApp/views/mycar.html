@@ -8,19 +8,4 @@
         <h3>{{vehicle.trim}}</h3>
         <h3>{{vehicle.engsize}}</h3>
     </div>
-
-    <hr />
-    <h1>Add New Vehicle</h1>
-
-    <form ng-submit="controller.save()">
-        <div>
-            <input type="text" ng-model="controller.vehicle.year" placeholder="year" />
-            <input type="text" ng-model="controller.vehicle.make" placeholder="make" />
-            <input type="text" ng-model="controller.vehicle.model" placeholder="model" />
-            <input type="text" ng-model="controller.vehicle.trim" placeholder="trim" />
-            <input type="text" ng-model="controller.vehicle.engsize" placeholder="engsize" />
-
-            <input type="submit" value="save" />
-        </div>
-    </form>
 </div>
