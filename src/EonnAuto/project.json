@@ -83,6 +83,7 @@
     "include": [
       "wwwroot",
       "Views",
+      "bower_components",
       "Areas/**/Views",
       "appsettings.json",
       "web.config"

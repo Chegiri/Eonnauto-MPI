@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using EonnAuto.Services;
 using Microsoft.AspNetCore.Authorization;
 using EonnAuto.Services.ModelDTO;
+using EonnAuto.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,12 +24,13 @@ namespace EonnAuto.Controllers
 
 
        [HttpPost]
-       public IActionResult Add([FromBody] InspectionDTO inspection)
+       public IActionResult Add([FromBody] InspectionDTO inspection, int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            inspection.VehicleId = id;
             _inspectionService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }
