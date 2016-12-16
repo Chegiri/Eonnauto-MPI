@@ -16,32 +16,28 @@ namespace EonnAuto.Controllers {
     export class MyCarController {
 
         public vehicles;
-        public vehicleResource;
+
         public vehicle;
         public inspection;
 
         public getVehicles() {
-            this.vehicles = this.vehicleResource.query();
+            this.vehicles = this.VehicleService.listVehicles();
         }
         public save() {
-            this.vehicleResource.save(this.vehicle).$promise.then(() => {
-                this.vehicle = null;
-                this.getVehicles();
-            });
+            this.VehicleService.save(this.vehicle);
 
         }
-        constructor(private $resource: angular.resource.IResourceService, private $http: ng.IHttpService, private $stateParams:
-            ng.ui.IStateParamsService) {
-            this.vehicleResource = $resource('/api/vehicle/:id');
+        constructor(
+            
+            private VehicleService: EonnAuto.Services.VehicleService,
+            private $state: ng.ui.IStateService,
+            private $stateParams:
+                ng.ui.IStateParamsService) {
             this.getVehicles();
-        }
-        public addInspection(inspection) {
-            this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
-                .then((response) => {
-                    this.inspection = response.data;
-                });
-        }
 
+
+        }
+        
     }
     export class AboutController {
         public message = 'Hello from the about page!';
@@ -50,19 +46,14 @@ namespace EonnAuto.Controllers {
     export class DetailController {
         public vehicle;
         public inspection;
-        //public vehicleResource;
+    
 
-        //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
-        //    //this.vehicle = this.getVehicle($stateParams['id']);
-        //    this.vehicleResource = $resource('/api/vehicle/:id');
-        //    this.getVehicle($stateParams['id']);
-        //    console.log(this.vehicleResource);
-        //}
-        //public getVehicle(id) {
-        //    return this.vehicleResource.get({ id: id });
-
-        constructor(private $http: ng.IHttpService, private $stateParams:
-            ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
+        constructor(
+            private $http: ng.IHttpService,
+            private $stateParams: ng.ui.IStateParamsService,
+            private VehicleService: EonnAuto.Services.VehicleService,
+            private InspectionService: EonnAuto.Services.InspectionService,
+            private $state: ng.ui.IStateService) {
             $http.get(`/api/vehicle/${$stateParams['id']}`)
                 .then((response) => {
                     this.vehicle = response.data;
@@ -75,6 +66,12 @@ namespace EonnAuto.Controllers {
                     this.inspection = response.data;
                     this.$state.reload();
                 });
+        }
+        public deleteVehicle() {
+            this.VehicleService.deleteVehicle(this.vehicle.id).then(() => this.$state.go('mycar'));
+        }
+        public deleteInspection() {
+            this.InspectionService.deleteInspection(this.inspection.id).then(() => this.$state.go('detail'));
         }
     }
 }

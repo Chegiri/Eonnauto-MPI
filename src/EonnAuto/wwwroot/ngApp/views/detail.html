@@ -1,5 +1,23 @@
 ﻿
+<div>
+
+    <img ng-src="{{controller.vehicle.vehiceUrl}}" class="img-circle" />
+    <h3>{{controller.vehicle.year}}</h3>
+    <h3>{{controller.vehicle.make}}</h3>
+    <h3>{{controller.vehicle.model}}</h3>
+    <h3>{{controller.vehicle.trim}}</h3>
+    <h3>{{controller.vehicle.engsize}}</h3>
+</div>
+<div>
+    <input type="button" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
+</div>
+
+<hr />
+
+<h1>Your Vehicle Inspections</h1>
+
 <div ng-repeat="inspection in controller.vehicle.inspection">
+
     Date: {{inspection.date | date: 'MMMM d, yyyy'}}
     <br />
     Mileage: {{inspection.mileage}}
@@ -11,6 +29,13 @@
     Tire: {{inspection.tire}}
     <br />
     Shock: {{inspection.shock}}
+    <br />
+    <br />
+
+    <div>
+        <input type="button" value="Delete Inspection" ng-click="inspection.deleteInspection()" />
+    </div>
+
 </div>
     <hr />
 

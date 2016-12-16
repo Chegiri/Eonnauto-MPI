@@ -26,6 +26,10 @@ namespace EonnAuto.Infastructure
             _db.Inspections.Add(inspection);
             _db.SaveChanges();
         }
-        
+        public void DeleInspection(Inspection dbInspection, int id)
+        {
+            _db.Inspections.Remove(dbInspection);
+            _db.SaveChanges();
+        }
     }
 }

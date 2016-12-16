@@ -60,6 +60,17 @@ namespace EonnAuto.Controllers
             _vehicleService.AddVehicle(vehicle, User.Identity.Name);
             return Ok();
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVehicle(VehicleDTO Vehicle, int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Vehicle.Id = id;
+            _vehicleService.DeleteVehicle(Vehicle, User.Identity.Name);
+            return Ok();
+        }
     }
 
 }
