@@ -70,7 +70,7 @@ namespace EonnAuto.Controllers {
             this.VehicleService.deleteVehicle(this.vehicle.id).then(() => this.$state.go('mycar'));
         }
         public deleteInspection() {
-            this.InspectionService.deleteInspection(this.inspection.id).then(() => this.$state.go('detail'));
+            this.InspectionService.deleteInspection(this.vehicle.inspection.id).then(() => this.$state.go('detail'));
             }
         }
     }

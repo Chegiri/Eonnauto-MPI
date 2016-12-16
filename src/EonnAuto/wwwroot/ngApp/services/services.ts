@@ -36,7 +36,7 @@ namespace EonnAuto.Services {
             return this.InspectionResource.delete({ id: id }).$promise;
         }
         constructor($resource: ng.resource.IResourceService) {
-            this.InspectionResource = $resource('api/detail/:id');
+            this.InspectionResource = $resource('api/inspection/:id');
 
         }
     }
