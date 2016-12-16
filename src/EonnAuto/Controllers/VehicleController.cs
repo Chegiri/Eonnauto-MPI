@@ -39,7 +39,7 @@ namespace EonnAuto.Controllers
                 return BadRequest(ModelState);
             }
             inspection.VehicleId = id;
-            _IService.AddInspection(inspection, User.Identity.Name);
+            _inspectionService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }
 
