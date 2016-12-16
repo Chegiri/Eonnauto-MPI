@@ -47,22 +47,6 @@ namespace EonnAuto.Controllers {
         public vehicle;
         public inspection;
     
-        //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
-        //    //this.vehicle = this.getVehicle($stateParams['id']);
-        //    this.vehicleResource = $resource('/api/vehicle/:id');
-        //    this.getVehicle($stateParams['id']);
-        //    console.log(this.vehicleResource);
-        //}
-        //public getVehicle(id) {
-        //    return this.vehicleResource.get({ id: id });
-        //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
-        //    //this.vehicle = this.getVehicle($stateParams['id']);
-        //    this.vehicleResource = $resource('/api/vehicle/:id');
-        //    this.getVehicle($stateParams['id']);
-        //    console.log(this.vehicleResource);
-        //}
-        //public getVehicle(id) {
-        //    return this.vehicleResource.get({ id: id });
 
         constructor(
             private $http: ng.IHttpService,
@@ -70,11 +54,11 @@ namespace EonnAuto.Controllers {
             private VehicleService: EonnAuto.Services.VehicleService,
             private InspectionService: EonnAuto.Services.InspectionService,
             private $state: ng.ui.IStateService) {
-                $http.get(`/api/vehicle/${$stateParams['id']}`)
-                    .then((response) => {
-                        this.vehicle = response.data;
-                        console.log(this.vehicle);
-                    });
+            $http.get(`/api/vehicle/${$stateParams['id']}`)
+                .then((response) => {
+                    this.vehicle = response.data;
+                    console.log(this.vehicle);
+                });
         }
         public addInspection(inspection) {
             this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
@@ -88,7 +72,7 @@ namespace EonnAuto.Controllers {
         }
         public deleteInspection() {
             this.InspectionService.deleteInspection(this.inspection.id).then(() => this.$state.go('detail'));
-            }
         }
     }
+}
 

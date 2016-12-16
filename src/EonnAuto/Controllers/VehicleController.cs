@@ -15,12 +15,12 @@ namespace EonnAuto.Controllers
     public class VehicleController : Controller
     {
         private VehicleService _vehicleService;
-        private InspectionService _IService;
+        public InspectionService _inspectionService;
 
         public VehicleController(VehicleService vs, InspectionService iss)
         {
             _vehicleService = vs;
-            _IService = iss;
+            _inspectionService = iss;
         }
 
         [HttpGet("{id}")]
@@ -42,6 +42,19 @@ namespace EonnAuto.Controllers
             _IService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }
+
+        [HttpPost("{id}/inspection")]
+        public IActionResult Add(int id, [FromBody] InspectionDTO inspection)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            inspection.VehicleId = id;
+            _inspectionService.AddInspection(inspection, User.Identity.Name);
+            return Ok();
+        }
+
         [HttpGet]
         [Authorize]
 
@@ -57,6 +70,17 @@ namespace EonnAuto.Controllers
                 return BadRequest(ModelState);
             }
             _vehicleService.AddVehicle(vehicle, User.Identity.Name);
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVehicle(VehicleDTO Vehicle, int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Vehicle.Id = id;
+            _vehicleService.DeleteVehicle(Vehicle, User.Identity.Name);
             return Ok();
         }
     }

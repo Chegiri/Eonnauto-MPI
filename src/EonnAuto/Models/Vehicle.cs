@@ -12,7 +12,7 @@ namespace EonnAuto.Models
 
         public string UserId { get; set; } [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
-
+        public string VehiceUrl { get; set; }
         public int Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }

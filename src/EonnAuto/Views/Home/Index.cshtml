@@ -3,27 +3,50 @@
     <title>EonnAuto</title>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
     <base href="/" />
+    
 </head>
 <body ng-controller="AccountController as account">
-    <div class="container">
-        <h1>EonnAuto</h1>
-        <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a> /
-            <a href="/mycar">My Car</a>
-
-           / <a href="/secret">Secret</a> /
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div> 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">EonnAuto</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/mycar">My Car</a></li>
+                    <li><a href="/secret">Secret</a></li>
+                </ul>
+            </div>
         </div>
-        <hr />
+    </nav>
 
-        <ui-view></ui-view>
+    <div class="container">
+        <div class="starter-template">
+
+            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div>
+
+
+            <ui-view></ui-view>
+           
+        </div>
     </div>
+    
+        
+    
 
     <!-- Library Files -->
     <script src="/bower_components/angular/angular.js"></script>

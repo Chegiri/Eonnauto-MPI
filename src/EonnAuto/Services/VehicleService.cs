@@ -25,6 +25,7 @@ namespace EonnAuto.Services
                     select new VehicleDTO()
                     {
                         Id = v.Id,
+                        VehiceUrl = v.VehiceUrl,
                         Year = v.Year,
                         Make = v.Make,
                         Model = v.Model,
@@ -38,6 +39,7 @@ namespace EonnAuto.Services
                     select new VehicleDTO()
                     {
                         Id = v.Id,
+                        VehiceUrl = v.VehiceUrl,
                         Year = v.Year,
                         Make = v.Make,
                         Model = v.Model,
@@ -65,6 +67,7 @@ namespace EonnAuto.Services
             Vehicle dbVehicle = new EonnAuto.Models.Vehicle()
             {
                 Id = vehicle.Id,
+                VehiceUrl = vehicle.VehiceUrl,
                 Year = vehicle.Year,
                 Make = vehicle.Make,
                 Model = vehicle.Model,
@@ -80,12 +83,17 @@ namespace EonnAuto.Services
                     select new VehicleDTO
                     {
                         Id = v.Id,
+                        VehiceUrl = v.VehiceUrl,
                         Year = v.Year,
                         Make = v.Make,
                         Model = v.Model,
                         Trim = v.Trim,
                         EngSize = v.EngSize
                     }).FirstOrDefault();
+        }
+        public void DeleteVehicle(VehicleDTO Vehicle, string currentuser)
+        {
+            _vehicileRepo.DeleVehicle(_vehicileRepo.GetVehicleById(Vehicle.Id, currentuser).First(), currentuser);
         }
     }
 }

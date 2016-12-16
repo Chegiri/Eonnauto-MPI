@@ -1,7 +1,11 @@
-<h1>Register</h1>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Welcome To EonnAuto</h1>
+        <p>Track your Vehicle Multi-Point Inspections.</p>
+    </div>
+</div>
 
 <fieldset>
-    <legend>Register with a Social Provider</legend>
     <ul>
         <li ng-repeat="externalLogin in account.externalLogins">
             <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
@@ -11,27 +15,41 @@
 </fieldset>
 
 <fieldset>
-    <legend>Local Registration</legend>
+    <h3>Please Register</h3>
     <ul>
         <li ng-repeat="message in controller.validationMessages">
             {{message}}
         </li>
     </ul>
+    <br />
+    <form class="form-horizontal" ng-submit="controller.register()">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email:</label>
 
-    <form ng-submit="controller.register()">
-        <div>
-            <label>Email:</label>
-            <input ng-model="controller.registerUser.email" />
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="controller.registerUser.email" />
+            </div>
+
+            
         </div>
-        <div>
-            <label>Password:</label>
-            <input ng-model="controller.registerUser.password" />
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="controller.registerUser.password" />
+            </div> 
         </div>
-        <div>
-            <label>Confirm Password:</label>
-            <input ng-model="controller.registerUser.confirmPassword" />
+        <div class="form-group">
+            <label label for="inputPassword3" class="col-sm-2 control-label">Confirm Password:</label>
+            <div class="col-sm-10">
+                <input input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password" ng-model="controller.registerUser.confirmPassword" />
+            </div>
         </div>
-        <input type="submit" value="Register" />
-    </form>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+            </div>
+</form>
 
 </fieldset>

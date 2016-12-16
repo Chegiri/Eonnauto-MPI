@@ -9,6 +9,7 @@ namespace EonnAuto.Services.ModelDTO
     {
         public int Id { get; set; }
         public IList<InspectionDTO> Inspection { get; set; }
+        public string VehiceUrl { get; set; }
         public int Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }

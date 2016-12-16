@@ -1,26 +1,46 @@
-﻿<div>
+﻿
+<div>
     <h3 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h3>
     <div ng-repeat="vehicle in controller.vehicles" ui-sref="detail({id: vehicle.id})">
-
+        
+        <img ng-src="{{vehicle.vehiceUrl}}" class="img-circle" />
         <h3>{{vehicle.year}}</h3>
         <h3>{{vehicle.make}}</h3>
         <h3>{{vehicle.model}}</h3>
         <h3>{{vehicle.trim}}</h3>
         <h3>{{vehicle.engsize}}</h3>
     </div>
+    
+</div>
 
-    <hr />
-    <h1>Add New Vehicle</h1>
+
+<h1>Add New Vehicle</h1>
+
+
+
+<div class="container">
 
     <form ng-submit="controller.save()">
-        <div>
-            <input type="text" ng-model="controller.vehicle.year" placeholder="year" />
-            <input type="text" ng-model="controller.vehicle.make" placeholder="make" />
-            <input type="text" ng-model="controller.vehicle.model" placeholder="model" />
-            <input type="text" ng-model="controller.vehicle.trim" placeholder="trim" />
-            <input type="text" ng-model="controller.vehicle.engsize" placeholder="engsize" />
-
-            <input type="submit" value="save" />
+        <div class="form-group-sm">
+            <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="year" />
         </div>
+        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.make" placeholder="make" />
+        </div>
+        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.model" placeholder="model" />
+        </div>
+        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.trim" placeholder="trim" />
+        </div>
+        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="engsize" />
+        </div>
+
+        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="image" />
+        </div>
+
+        <input type="submit" value="save" />
     </form>
 </div>
