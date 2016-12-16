@@ -16,28 +16,23 @@ namespace EonnAuto.Controllers {
     export class MyCarController {
 
         public vehicles;
-
+        public vehicleResource;
         public vehicle;
-        public inspection;
 
         public getVehicles() {
-            this.vehicles = this.VehicleService.listVehicles();
+            this.vehicles = this.vehicleResource.query();
         }
         public save() {
-            this.VehicleService.save(this.vehicle);
+            this.vehicleResource.save(this.vehicle).$promise.then(() => {
+                this.vehicle = null;
+                this.getVehicles();
+            });
 
         }
-        constructor(
-            
-            private VehicleService: EonnAuto.Services.VehicleService,
-            private $state: ng.ui.IStateService,
-            private $stateParams:
-                ng.ui.IStateParamsService) {
+        constructor(private $resource: angular.resource.IResourceService) {
+            this.vehicleResource = $resource('/api/vehicle/:id');
             this.getVehicles();
-
-
         }
-        
     }
     export class AboutController {
         public message = 'Hello from the about page!';
@@ -46,15 +41,16 @@ namespace EonnAuto.Controllers {
     export class DetailController {
         public vehicle;
         public inspection;
-    
-        //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
-        //    //this.vehicle = this.getVehicle($stateParams['id']);
-        //    this.vehicleResource = $resource('/api/vehicle/:id');
-        //    this.getVehicle($stateParams['id']);
-        //    console.log(this.vehicleResource);
-        //}
-        //public getVehicle(id) {
-        //    return this.vehicleResource.get({ id: id });
+        //public vehicleResource;
+
+    //    constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
+    //        //this.vehicle = this.getVehicle($stateParams['id']);
+    //        this.vehicleResource = $resource('/api/vehicle/:id');
+    //        this.getVehicle($stateParams['id']);
+    //        console.log(this.vehicleResource);
+    //    }
+    //    public getVehicle(id) {
+    //        return this.vehicleResource.get({ id: id });
         //constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService) {
         //    //this.vehicle = this.getVehicle($stateParams['id']);
         //    this.vehicleResource = $resource('/api/vehicle/:id');
@@ -64,12 +60,8 @@ namespace EonnAuto.Controllers {
         //public getVehicle(id) {
         //    return this.vehicleResource.get({ id: id });
 
-        constructor(
-            private $http: ng.IHttpService,
-            private $stateParams: ng.ui.IStateParamsService,
-            private VehicleService: EonnAuto.Services.VehicleService,
-            private InspectionService: EonnAuto.Services.InspectionService,
-            private $state: ng.ui.IStateService) {
+            constructor(private $http: ng.IHttpService, private $stateParams:
+                ng.ui.IStateParamsService) {
                 $http.get(`/api/vehicle/${$stateParams['id']}`)
                     .then((response) => {
                         this.vehicle = response.data;
@@ -77,17 +69,10 @@ namespace EonnAuto.Controllers {
                     });
         }
         public addInspection(inspection) {
-            this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
+            this.$http.post(`/api/inspection`, inspection)
                 .then((response) => {
                     this.inspection = response.data;
-                    this.$state.reload();
                 });
-        }
-        public deleteVehicle() {
-            this.VehicleService.deleteVehicle(this.vehicle.id).then(() => this.$state.go('mycar'));
-        }
-        public deleteInspection() {
-            this.InspectionService.deleteInspection(this.inspection.id).then(() => this.$state.go('detail'));
             }
         }
     }
