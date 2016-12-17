@@ -57,7 +57,8 @@ namespace EonnAuto.Controllers {
                     .then((response) => {
                         this.vehicle = response.data;
                         console.log(this.vehicle);
-                    });
+                });
+                
         }
         public addInspection(inspection) {
             this.$http.post(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
@@ -69,8 +70,9 @@ namespace EonnAuto.Controllers {
         public deleteVehicle() {
             this.VehicleService.deleteVehicle(this.vehicle.id).then(() => this.$state.go('mycar'));
         }
-        public deleteInspection() {
-            this.InspectionService.deleteInspection(this.vehicle.inspection.id).then(() => this.$state.go('detail'));
+        public deleteInspection(inspection, id) {
+            console.log(inspection, id);
+            this.InspectionService.deleteInspection(id).then(() => this.$state.reload())
             }
         }
     }
