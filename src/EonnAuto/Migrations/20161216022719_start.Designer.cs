@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EonnAuto.Data;
 
-namespace EonnAuto.Data.Migrations
+namespace EonnAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20161214022210_url")]
-    partial class url
+    [Migration("20161216022719_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

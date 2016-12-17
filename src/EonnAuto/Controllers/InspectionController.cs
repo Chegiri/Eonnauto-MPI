@@ -35,6 +35,8 @@ namespace EonnAuto.Controllers
             return Ok();
         }
        
+        }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteInspection (InspectionDTO Inspection, int id)
         {
