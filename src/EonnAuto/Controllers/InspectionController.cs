@@ -21,9 +21,9 @@ namespace EonnAuto.Controllers
         {
             _inspectionService = ins;
         }
+    
 
-
-       [HttpPost]
+    [HttpPost]
        public IActionResult Add([FromBody] InspectionDTO inspection, int id)
         {
             if (!ModelState.IsValid)
@@ -34,11 +34,7 @@ namespace EonnAuto.Controllers
             _inspectionService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }
-        //[HttpGet("{id}")]
-        //public InspectionDTO Get(int id)
-        //{
-        //    return _inspectionService.FindById(id, vehicleId, User.Identity.Name);
-        //}
+       
         [HttpDelete("{id}")]
         public IActionResult DeleteInspection (InspectionDTO Inspection, int id)
         {
@@ -47,7 +43,7 @@ namespace EonnAuto.Controllers
                 return BadRequest(ModelState);
             }
             Inspection.Id = id;
-            _inspectionService.DeleteInspection(Inspection, Inspection.Id);
+            _inspectionService.DeleteInspection(Inspection);
             return Ok();
         }
     }

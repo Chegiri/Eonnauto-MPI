@@ -32,7 +32,7 @@ namespace EonnAuto.Infastructure
                    where v.Id == id && v.User.UserName == user
                    select v;
         }
-        public void DeleVehicle(Vehicle dbVehicle, string user)
+        public void DeleteVehicle(Vehicle dbVehicle, string user)
         {
             _db.Vehicles.Remove(dbVehicle);
             _db.SaveChanges();

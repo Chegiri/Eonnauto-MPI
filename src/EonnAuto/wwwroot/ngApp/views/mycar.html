@@ -1,46 +1,43 @@
 ﻿
-<div>
-    <h3 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h3>
-    <div ng-repeat="vehicle in controller.vehicles" ui-sref="detail({id: vehicle.id})">
-        
-        <img ng-src="{{vehicle.vehiceUrl}}" class="img-circle" />
-        <h3>{{vehicle.year}}</h3>
-        <h3>{{vehicle.make}}</h3>
-        <h3>{{vehicle.model}}</h3>
-        <h3>{{vehicle.trim}}</h3>
-        <h3>{{vehicle.engsize}}</h3>
+<div class="site-wrapper">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0">
+
+            <h3 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h3>
+            <div ng-repeat="vehicle in controller.vehicles">
+
+                <img ng-src="{{vehicle.vehiceUrl}}" class="featurette-image img-responsive center-block" />
+                <div class="list-group">
+                    <h3 class="list-group-item active">Your Vehicle</h3>
+                    <h4 class="text-justify"><small>Year:</small> {{vehicle.year}}</h4>
+                    <h4 class="text-justify"><small>Make:</small> {{vehicle.make}}</h4>
+                    <h4 class="text-justify"><small>Model:</small> {{vehicle.model}}</h4>
+                    <h4 class="text-justify"><small>Trim:</small> {{vehicle.trim}}</h4>
+                    <h4 class="text-justify"><small>Eng-Size:</small> {{vehicle.engSize}}</h4>
+                    <br />
+                    <a class="btn btn-primary" ui-sref="detail({id: vehicle.id})">View detail &raquo;</a>
+                    <hr class="active" />
+                </div>
+
+            </div>
     </div>
-    
+    </div>
 </div>
 
+<hr class="featurette-divider"/>
 
 <h1>Add New Vehicle</h1>
-
-
-
 <div class="container">
 
     <form ng-submit="controller.save()">
-        <div class="form-group-sm">
+        
             <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="year" />
-        </div>
-        <div class="col-md-6 .col-md-offset-3">
             <input type="text" class="form-control" ng-model="controller.vehicle.make" placeholder="make" />
-        </div>
-        <div class="col-md-6 .col-md-offset-3">
             <input type="text" class="form-control" ng-model="controller.vehicle.model" placeholder="model" />
-        </div>
-        <div class="col-md-6 .col-md-offset-3">
             <input type="text" class="form-control" ng-model="controller.vehicle.trim" placeholder="trim" />
-        </div>
-        <div class="col-md-6 .col-md-offset-3">
-            <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="engsize" />
-        </div>
-
-        <div class="col-md-6 .col-md-offset-3">
+            <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="engsize" /> 
             <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="image" />
-        </div>
-
+     
         <input type="submit" value="save" />
     </form>
 </div>

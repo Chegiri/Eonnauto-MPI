@@ -10,7 +10,7 @@ namespace EonnAuto.Infastructure
     public class InspectionRepository
     {
         public ApplicationDbContext _db;
-        
+
         public InspectionRepository(ApplicationDbContext db)
         {
             _db = db;
@@ -19,14 +19,22 @@ namespace EonnAuto.Infastructure
         {
             return from i in _db.Inspections
                    where i.VehicleId == vehicleId
-                   select i;          
+                   select i;
         }
         public void Add(Inspection inspection)
         {
             _db.Inspections.Add(inspection);
             _db.SaveChanges();
         }
-        public void DeleInspection(Inspection dbInspection, int id)
+
+
+    public IQueryable<Inspection> GetInspectionById(int id) 
+            {
+            return from i in _db.Inspections
+                   where i.Id == id
+                   select i;
+            }
+    public void DeleteInspection(Inspection dbInspection)
         {
             _db.Inspections.Remove(dbInspection);
             _db.SaveChanges();

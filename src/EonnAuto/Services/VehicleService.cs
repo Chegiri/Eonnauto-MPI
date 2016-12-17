@@ -10,18 +10,18 @@ namespace EonnAuto.Services
 {
     public class VehicleService
     {
-        private VehicleRepository _vehicileRepo;
+        private VehicleRepository _vehicleRepo;
         private UserRepository _userRepo;
 
         public VehicleService(VehicleRepository vr, UserRepository ur)
         {
-            _vehicileRepo = vr;
+            _vehicleRepo = vr;
             _userRepo = ur;
         }
 
         public IList<VehicleDTO> GetVehicleForUser(string userName)
         {
-            return (from v in _vehicileRepo.GetVehicleForuser(userName)
+            return (from v in _vehicleRepo.GetVehicleForuser(userName)
                     select new VehicleDTO()
                     {
                         Id = v.Id,
@@ -35,7 +35,7 @@ namespace EonnAuto.Services
         }
         public VehicleDTO PersonalVehicle(int Id, string user)
         {
-            return (from v in _vehicileRepo.GetVehicleById(Id, user)
+            return (from v in _vehicleRepo.GetVehicleById(Id, user)
                     select new VehicleDTO()
                     {
                         Id = v.Id,
@@ -75,11 +75,11 @@ namespace EonnAuto.Services
                 EngSize = vehicle.EngSize,
                 UserId = _userRepo.GetUser(currentUser).First().Id
             };
-            _vehicileRepo.Add(dbVehicle);
+            _vehicleRepo.Add(dbVehicle);
         }
         public VehicleDTO FindById(int id, string user)
         {
-            return (from v in _vehicileRepo.GetVehicleById(id, user)
+            return (from v in _vehicleRepo.GetVehicleById(id, user)
                     select new VehicleDTO
                     {
                         Id = v.Id,
@@ -93,7 +93,7 @@ namespace EonnAuto.Services
         }
         public void DeleteVehicle(VehicleDTO Vehicle, string currentuser)
         {
-            _vehicileRepo.DeleVehicle(_vehicileRepo.GetVehicleById(Vehicle.Id, currentuser).First(), currentuser);
+            _vehicleRepo.DeleteVehicle(_vehicleRepo.GetVehicleById(Vehicle.Id, currentuser).First(), currentuser);
         }
     }
 }
