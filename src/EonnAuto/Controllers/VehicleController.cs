@@ -17,10 +17,10 @@ namespace EonnAuto.Controllers
         private VehicleService _vehicleService;
         public InspectionService _inspectionService;
 
-        public VehicleController(VehicleService vs, InspectionService iss)
+        public VehicleController(VehicleService vs, InspectionService ins)
         {
             _vehicleService = vs;
-            _inspectionService = iss;
+            _inspectionService = ins;
         }
 
         [HttpGet("{id}")]

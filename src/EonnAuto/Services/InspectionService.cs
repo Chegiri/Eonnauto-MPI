@@ -64,9 +64,10 @@ namespace EonnAuto.Services
                         Shock = i.Shock
                     }).FirstOrDefault();
         }
-        public void DeleteInspection(InspectionDTO Inspection, int vehicleId)
+        public void DeleteInspection(InspectionDTO Inspection)
         {
-            _inspectionRepo.DeleInspection(_inspectionRepo.GetInspectionForvehicle(Inspection.Id).First(), vehicleId);
+            _inspectionRepo.DeleteInspection(_inspectionRepo.GetInspectionById(Inspection.Id).First());
         }
     }
+    
 }
