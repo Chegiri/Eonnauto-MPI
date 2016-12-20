@@ -76,7 +76,7 @@ namespace EonnAuto.Controllers {
             this.InspectionService.deleteInspection(id).then(() => this.$state.reload())
         }
         public editInspection(inspection) {
-            this.$http.put(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
+            this.$http.put(`/api/inspection/${this.$stateParams['id']}`, inspection)
                 .then((result) => {
                     this.$state.reload();
                 }).catch((reason) => {
