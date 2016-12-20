@@ -34,8 +34,7 @@ namespace EonnAuto.Controllers
             _inspectionService.AddInspection(inspection, User.Identity.Name);
             return Ok();
         }
-       
-        }
+      
 
         [HttpDelete("{id}")]
         public IActionResult DeleteInspection (InspectionDTO Inspection, int id)
