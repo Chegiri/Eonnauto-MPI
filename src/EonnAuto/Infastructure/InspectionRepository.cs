@@ -33,10 +33,14 @@ namespace EonnAuto.Infastructure
             return from i in _db.Inspections
                    where i.Id == id
                    select i;
-            }
+            } 
     public void DeleteInspection(Inspection dbInspection)
         {
             _db.Inspections.Remove(dbInspection);
+            _db.SaveChanges();
+        }
+        public void EditInspection()
+        {
             _db.SaveChanges();
         }
     }

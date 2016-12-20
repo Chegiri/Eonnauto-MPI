@@ -1,6 +1,6 @@
 ﻿
 <div>
-
+    
     <img ng-src="{{controller.vehicle.vehiceUrl}}" class="img-circle" />
     <h3>{{controller.vehicle.year}}</h3>
     <h3>{{controller.vehicle.make}}</h3>
@@ -8,6 +8,7 @@
     <h3>{{controller.vehicle.trim}}</h3>
     <h3>{{controller.vehicle.engsize}}</h3>
 </div>
+
 <div>
     <input type="button" class="btn btn-info" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
 </div>
@@ -32,21 +33,34 @@
     <br />
     <br />
 
-    <div>
-        <input type="button" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
-    </div>
 
+    <div>
+        <h3>Edit Inspection</h3>
+        <form ng-submit="controller.editInspection(inspection)">
+            <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
+            <input type="text" ng-model="inspection.brake" placeholder="Brake" />
+            <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
+            <input type="text" ng-model="inspection.tire" placeholder="Tire" />
+            <input type="text" ng-model="inspection.shock" placeholder="Shock" />
+
+            <input type="submit" value="Edit" class="btn btn-info " />
+        </form>
+    </div>
+    <div>
+        <input type="button" class="btn btn-danger"  value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
+    </div>
 </div>
+<br /><br />
     <hr />
 
     <h1>Add New Inspection</h1>
     <form ng-submit="controller.addInspection(inspection)">
         <div>
-            <input type="text" ng-model="inspection.mileage" placeholder="mileage" />
-            <input type="text" ng-model="inspection.brake" placeholder="brake" />
-            <input type="text" ng-model="inspection.rotor" placeholder="rotor" />
-            <input type="text" ng-model="inspection.tire" placeholder="tire" />
-            <input type="text" ng-model="inspection.shock" placeholder="shock" />
+            <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
+            <input type="text" ng-model="inspection.brake" placeholder="Brake" />
+            <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
+            <input type="text" ng-model="inspection.tire" placeholder="Tire" />
+            <input type="text" ng-model="inspection.shock" placeholder="Shock" />
 
             <input type="submit" value="save" />
 

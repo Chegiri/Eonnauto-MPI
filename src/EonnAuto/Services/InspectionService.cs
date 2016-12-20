@@ -64,6 +64,19 @@ namespace EonnAuto.Services
                         Shock = i.Shock
                     }).FirstOrDefault();
         }
+        public void EditInspection(InspectionDTO inspection)
+        {
+            Inspection dbInspection = _inspectionRepo.GetInspectionById(inspection.Id).FirstOrDefault();
+
+            dbInspection.Mileage = inspection.Mileage;
+            dbInspection.Brake = inspection.Brake;
+            dbInspection.Rotor = inspection.Rotor;
+            dbInspection.Shock = inspection.Shock;
+            dbInspection.Tire = dbInspection.Tire;
+
+            _inspectionRepo.EditInspection();
+
+        }
         public void DeleteInspection(InspectionDTO Inspection)
         {
             _inspectionRepo.DeleteInspection(_inspectionRepo.GetInspectionById(Inspection.Id).First());

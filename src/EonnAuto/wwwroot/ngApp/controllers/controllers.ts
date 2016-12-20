@@ -25,6 +25,7 @@ namespace EonnAuto.Controllers {
         }
         public save() {
             this.VehicleService.save(this.vehicle);
+            this.$state.reload();
 
         }
         constructor(
@@ -73,7 +74,16 @@ namespace EonnAuto.Controllers {
         public deleteInspection(inspection, id) {
             console.log(inspection, id);
             this.InspectionService.deleteInspection(id).then(() => this.$state.reload())
-            }
+        }
+        public editInspection(inspection) {
+            this.$http.put(`/api/vehicle/${this.$stateParams['id']}/inspection`, inspection)
+                .then((result) => {
+                    this.$state.reload();
+                }).catch((reason) => {
+                    console.log(reason);
+                    console.log(inspection);
+                });
+        }
         }
     }
 
