@@ -1,68 +1,126 @@
-﻿
-<div>
-    
-    <img ng-src="{{controller.vehicle.vehiceUrl}}" class="img-circle" />
-    <h3>{{controller.vehicle.year}}</h3>
-    <h3>{{controller.vehicle.make}}</h3>
-    <h3>{{controller.vehicle.model}}</h3>
-    <h3>{{controller.vehicle.trim}}</h3>
-    <h3>{{controller.vehicle.engsize}}</h3>
-</div>
-
-<div>
-    <input type="button" class="btn btn-info" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
-</div>
-
-<hr />
-
-<h1>Your Vehicle Inspections</h1>
-
-<div ng-repeat="inspection in controller.vehicle.inspection">
-
-    Date: {{inspection.date | date: 'MMMM d, yyyy'}}
-    <br />
-    Mileage: {{inspection.mileage}}
-    <br />
-    Brake: {{inspection.brake}}
-    <br />
-    Rotor: {{inspection.rotor}}
-    <br />
-    Tire: {{inspection.tire}}
-    <br />
-    Shock: {{inspection.shock}}
-    <br />
-    <br />
-
-
-    <div>
-        <h3>Edit Inspection</h3>
-        <form ng-submit="controller.editInspection(inspection)">
-            <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
-            <input type="text" ng-model="inspection.brake" placeholder="Brake" />
-            <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
-            <input type="text" ng-model="inspection.tire" placeholder="Tire" />
-            <input type="text" ng-model="inspection.shock" placeholder="Shock" />
-
-            <input type="submit" value="Edit" class="btn btn-info " />
-        </form>
+﻿<section class="jumbotron text-xs-center">
+    <div class="container">
+        <h1 class="display-4">Your Vehicle Inspection History</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p>
+            <a href="/register" class="btn btn-primary">Join EonnAuto</a>
+            <a href="/login" class="btn btn-secondary">My Account</a>
+        </p>
     </div>
-    <div>
-        <input type="button" class="btn btn-danger"  value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
+</section>
+
+        <div class="cover-container">
+            <div class="container marketing">
+
+                <img ng-src="{{controller.vehicle.vehiceUrl}}" class="rounded mx-auto d-block" width="556" height="480" />
+                <br />
+                    <ul class="list-unstyled text-xs-center">
+                        <li><strong class="card-subtitle text-muted"> Year:</strong>  {{controller.vehicle.year}}</li>
+                        <li><strong class="card-subtitle text-muted"> Make:</strong>  {{controller.vehicle.make}}</li>
+                        <li><strong class="card-subtitle text-muted"> Model:</strong>  {{controller.vehicle.model}}</li>
+                        <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{controller.vehicle.trim}}</li>
+                        <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engsize}}</li>
+                    </ul>
+                
+            </div>
+        </div>
+ 
+        <div>
+            <input type="button" class="btn btn-outline-danger" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
+        </div>
+
+        <hr />
+
+       <!--Collapse Your Vehicle Inspection-->
+<div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Your Vehicle Inspections
+                </a>
+            </h5>
+        </div>
+
+        <!--Collapse Your Vehicle Inspection Vehicle-->
+        <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-block" ng-repeat="inspection in controller.vehicle.inspection">
+                Date: {{inspection.date | date: 'MMMM d, yyyy'}}
+                <br />
+                Mileage: {{inspection.mileage}}
+                <br />
+                Brake: {{inspection.brake}}
+                <br />
+                Rotor: {{inspection.rotor}}
+                <br />
+                Tire: {{inspection.tire}}
+                <br />
+                Shock: {{inspection.shock}}
+                <br />
+                <br />
+                <div>
+                    <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
+
+                    <div>
+                        <h3>Edit Inspection</h3>
+                        <form ng-submit="controller.editInspection(inspection)">
+                            <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
+                            <input type="text" ng-model="inspection.brake" placeholder="Brake" />
+                            <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
+                            <input type="text" ng-model="inspection.tire" placeholder="Tire" />
+                            <input type="text" ng-model="inspection.shock" placeholder="Shock" />
+
+                            <input type="submit" value="Edit" class="btn btn-info " />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<br /><br />
+
+
+
+    <div class="card">
+        <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Add New Inspection
+                </a>
+            </h5>
+        </div>
+    </div>
+
+    <!--Collapse Add New Vehicle Inspection-->
+    <div id="collapseTwo" class="collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="card-block">
+            <form ng-submit="controller.addInspection(inspection)">
+               
+                    <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
+                    <input type="text" ng-model="inspection.brake" placeholder="Brake" />
+                    <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
+                    <input type="text" ng-model="inspection.tire" placeholder="Tire" />
+                    <input type="text" ng-model="inspection.shock" placeholder="Shock" />
+
+                    <input type="submit" value="save" />
+
+              
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div >
+
+        
+
+
+        
+        
+    </div>
+    <br /><br />
     <hr />
 
-    <h1>Add New Inspection</h1>
-    <form ng-submit="controller.addInspection(inspection)">
-        <div>
-            <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
-            <input type="text" ng-model="inspection.brake" placeholder="Brake" />
-            <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
-            <input type="text" ng-model="inspection.tire" placeholder="Tire" />
-            <input type="text" ng-model="inspection.shock" placeholder="Shock" />
-
-            <input type="submit" value="save" />
-
-        </div>
-    </form>
+    <h1></h1>
+    
