@@ -3,8 +3,8 @@
         <h1 class="display-4">Your Vehicle Inspection History</h1>
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
         <p>
-            <a href="/register" class="btn btn-primary">Join EonnAuto</a>
-            <a href="/login" class="btn btn-secondary">My Account</a>
+            <a href="/mycar" class="btn btn-primary">Back To Your Vehicle</a>
+            <a href="/" class="btn btn-secondary">Back To Home</a>
         </p>
     </div>
 </section>
@@ -17,7 +17,7 @@
                         <li><strong class="card-subtitle text-muted"> Make:</strong>  {{controller.vehicle.make}}</li>
                         <li><strong class="card-subtitle text-muted"> Model:</strong>  {{controller.vehicle.model}}</li>
                         <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{controller.vehicle.trim}}</li>
-                        <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engsize}}</li>
+                        <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engSize}}</li>
                     </ul>  
             </div>
         </div>
@@ -26,7 +26,7 @@
             <input type="button" class="btn btn-outline-danger" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
         </div>
 
-        <hr />
+        <br />
 
        <!--Collapse Your Vehicle Inspection-->
 <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -140,8 +140,6 @@
         </div>
     </div>
 
-
-
     <div class="card">
         <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0">
@@ -154,19 +152,50 @@
 
     <!--Collapse Add New Vehicle Inspection-->
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div class="card-block">
-            <form ng-submit="controller.addInspection(inspection)">
+        <div class="row">
+                <form ng-submit="controller.addInspection(inspection)">
+                    <div class="col-lg-2">
+                        <input type="text" ng-model="inspection.mileage" placeholder="Mileage" class="form-control" />
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="custom-select">
+                            <option selected ng-model="inspection.brake">Brakes</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="custom-select">
+                            <option selected ng-model="inspection.rotor">Rotors</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="custom-select">
+                            <option selected ng-model="inspection.tire">Tires</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select placholder="Shocks" class="custom-select" >
+                            <option selected ng-model="inspection.shock">Shocks</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
 
-                <input type="text" ng-model="inspection.mileage" placeholder="Mileage" />
-                <input type="text" ng-model="inspection.brake" placeholder="Brake" />
-                <input type="text" ng-model="inspection.rotor" placeholder="Rotor" />
-                <input type="text" ng-model="inspection.tire" placeholder="Tire" />
-                <input type="text" ng-model="inspection.shock" placeholder="Shock" />
-
-                <input type="submit" value="save" />
-
-
-            </form>
-        </div>
-    </div>
+                        <input type="submit"  class="btn btn-outline-info" value="save" ng-submit="controller.addInspection(inspection)" />
+        </form>
+            </div>
+            </div>
 </div>

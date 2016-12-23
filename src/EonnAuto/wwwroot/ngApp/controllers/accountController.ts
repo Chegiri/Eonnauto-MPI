@@ -40,7 +40,7 @@ namespace EonnAuto.Controllers {
 
         public login() {
             this.accountService.login(this.loginUser).then(() => {
-                this.$location.path('/');
+                this.$location.path('/mycar');
             }).catch((results) => {
                 this.validationMessages = results;
             });

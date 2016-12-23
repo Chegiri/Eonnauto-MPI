@@ -1,12 +1,62 @@
 ﻿<h4 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h4>
 
+
+
+<!--Modal-->
+<div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add New Vehicle</h4>
+                <form ng-submit="controller.save()">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="Image" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="Year" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.make" placeholder="Make" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.model" placeholder="Model" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.trim" placeholder="Trim" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="Engsize" />
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Save Vehicle" class="btn btn-primary" ng-submit="controller.save()" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <section class="jumbotron text-xs-center">
     <div class="container">
         <h1 class="display-4">Start Managing Your Cars</h1>
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
         <p>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add New Vehicle</button>
-            <!--<a href="#" class="btn btn-secondary">Secondary action</a>-->
+            <a href="/" class="btn btn-secondary">Back To Home</a>
         </p>
     </div>
 </section>
@@ -36,47 +86,7 @@
         </div>
     </div>
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add New Vehicle</h4>
-                <form ng-submit="controller.save()">
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="Image" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="Year" />
-                        </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.make" placeholder="Make" />
-                    </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="controller.vehicle.model" placeholder="Model" />
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="controller.vehicle.trim" placeholder="Trim" />
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="Engsize" />
-                        </div>
-                        
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" value="Save Vehicle" class="btn btn-primary" data-dismiss="modal" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

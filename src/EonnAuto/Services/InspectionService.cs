@@ -72,7 +72,7 @@ namespace EonnAuto.Services
             dbInspection.Brake = inspection.Brake;
             dbInspection.Rotor = inspection.Rotor;
             dbInspection.Shock = inspection.Shock;
-            dbInspection.Tire = dbInspection.Tire;
+            dbInspection.Tire = inspection.Tire;
 
             _inspectionRepo.EditInspection();
 
