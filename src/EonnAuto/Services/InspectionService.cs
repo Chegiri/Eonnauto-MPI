@@ -25,7 +25,7 @@ namespace EonnAuto.Services
                     {
                         Id = i.Id,
                         VehicleId = i.VehicleId,
-                        Date = i.Date,
+                        Date = DateTime.Now,
                         Mileage = i.Mileage,
                         Brake = i.Brake,
                         Rotor = i.Rotor,

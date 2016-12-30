@@ -158,8 +158,8 @@
                         <input type="text" ng-model="inspection.mileage" placeholder="Mileage" class="form-control" />
                     </div>
                     <div class="col-lg-2">
-                        <select class="custom-select">
-                            <option selected ng-model="inspection.brake">Brakes</option>
+                        <select class="custom-select" ng-model="inspection.brake">
+                            <option selected >Brakes</option>
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Replace">Replace</option>
@@ -167,8 +167,17 @@
                         </select>
                     </div>
                     <div class="col-lg-2">
+                        <select class="custom-select" ng-model="inspection.rotor">
+                            <option selected >Rotors</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2" ng-model="inspection.tire">
                         <select class="custom-select">
-                            <option selected ng-model="inspection.rotor">Rotors</option>
+                            <option selected >Tires</option>
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Replace">Replace</option>
@@ -176,17 +185,8 @@
                         </select>
                     </div>
                     <div class="col-lg-2">
-                        <select class="custom-select">
-                            <option selected ng-model="inspection.tire">Tires</option>
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Replace">Replace</option>
-                            <option value="N/A">N/A</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <select placholder="Shocks" class="custom-select" >
-                            <option selected ng-model="inspection.shock">Shocks</option>
+                        <select placholder="Shocks" class="custom-select" ng-model="inspection.shock">
+                            <option selected >Shocks</option>
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Replace">Replace</option>
