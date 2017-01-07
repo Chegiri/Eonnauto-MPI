@@ -52,11 +52,26 @@ namespace EonnAuto.Services
                                           VehicleId = i.VehicleId,
                                           Date = i.Date,
                                           Mileage = i.Mileage,
-                                          Brake = i.Brake,
-                                          Rotor = i.Rotor,
-                                          Tire = i.Tire,
-                                          Shock = i.Shock
-
+                                          AirFilter = i.AirFilter,
+                                          CabinFilter = i.CabinFilter,
+                                          DriveBelt = i.DriveBelt,
+                                          Exhaust = i.Exhaust,
+                                          FrontBrakes = i.FrontBrakes,
+                                          FrontHeadLights = i.FrontHeadLights,
+                                          FrontRotors = i.FrontRotors,
+                                          FrontSignals = i.FrontSignals,
+                                          FrontSuspension = i.FrontSuspension,
+                                          FrontTires = i.FrontTires,
+                                          FrontWheels = i.FrontWheels,
+                                          Horn = i.Horn,
+                                          RearBrakes = i.RearBrakes,
+                                          RearRotors = i.RearRotors,
+                                          RearStopLights = i.RearStopLights,
+                                          RearSuspension = i.RearSuspension,
+                                          RearTires = i.RearTires,
+                                          RearWheels = i.RearWheels,
+                                          Steering = i.Steering, 
+                                          Wipers = i.Wipers
                                       }).ToList()
 
                     }).FirstOrDefault();

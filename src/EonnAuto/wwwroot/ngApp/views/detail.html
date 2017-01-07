@@ -175,9 +175,9 @@
                             <option value="N/A">N/A</option>
                         </select>
                     </div>
-                    <div class="col-lg-2" ng-model="inspection.tire">
-                        <select class="custom-select">
-                            <option selected >Tires</option>
+                    <div class="col-lg-2" >
+                        <select class="custom-select" placeholder="Tires" ng-model="inspection.tire">
+                            <option selected>Tires</option>
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Replace">Replace</option>
@@ -185,8 +185,8 @@
                         </select>
                     </div>
                     <div class="col-lg-2">
-                        <select placholder="Shocks" class="custom-select" ng-model="inspection.shock">
-                            <option selected >Shocks</option>
+                        <select placeholder="Shocks" class="custom-select" ng-model="inspection.shock">
+                            <!--<option selected >Shocks</option>-->
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Replace">Replace</option>
@@ -194,7 +194,7 @@
                         </select>
                     </div>
 
-                        <input type="submit"  class="btn btn-outline-info" value="save" ng-submit="controller.addInspection(inspection)" />
+                        <input type="submit"  class="btn btn-outline-info" />
         </form>
             </div>
             </div>

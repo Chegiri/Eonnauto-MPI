@@ -66,10 +66,24 @@ namespace EonnAuto.Data
                         new Inspection {
                             Date = DateTime.Now,
                         Mileage= 3000,
-                        Brake= "Good",
-                        Rotor= "Fair",
-                        Tire= "Replace",
-                        Shock= "N/A",
+                        FrontBrakes= "Good",
+                        RearRotors= "Fair",
+                        FrontTires= "Replace",
+                        FrontSuspension= "N/A",
+                        FrontHeadLights= "Good",
+                        FrontSignals= "Good",
+                        FrontWheels= "Replace",
+                        AirFilter= "N/A",
+                        CabinFilter= "Fair",
+                        DriveBelt= "Replace",
+                        Horn= "Good",
+                        Exhaust= "Good",
+                        RearBrakes= "Replace",
+                        RearStopLights= "N/A",
+                        RearSuspension= "Good",
+                        RearTires="Good",
+                        RearWheels="Fair",
+                        Steering="Good"  
                         }
                     }
 
@@ -86,11 +100,24 @@ namespace EonnAuto.Data
                     {
                         new Inspection {
                             Date = DateTime.Now,
-                        Mileage= 12000,
-                        Brake= "Fair",
-                        Rotor= "Replace",
-                        Tire= "Good",
-                        Shock= "N/Good",
+                        FrontBrakes= "Good",
+                        RearRotors= "Fair",
+                        FrontTires= "Replace",
+                        FrontSuspension= "N/A",
+                        FrontHeadLights= "Good",
+                        FrontSignals= "Good",
+                        FrontWheels= "Replace",
+                        AirFilter= "N/A",
+                        CabinFilter= "Fair",
+                        DriveBelt= "Replace",
+                        Horn= "Good",
+                        Exhaust= "Good",
+                        RearBrakes= "Replace",
+                        RearStopLights= "N/A",
+                        RearSuspension= "Good",
+                        RearTires="Good",
+                        RearWheels="Fair",
+                        Steering="Good"
                         }
                     }
 
