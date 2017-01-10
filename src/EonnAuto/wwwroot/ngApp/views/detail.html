@@ -8,67 +8,187 @@
         </p>
     </div>
 </section>
-        <div class="cover-container">
-            <div class="container marketing">
-                <img ng-src="{{controller.vehicle.vehiceUrl}}" class="rounded mx-auto d-block" width="556" height="480" />
-                <br />
-                    <ul class="list-unstyled text-xs-center">
-                        <li><strong class="card-subtitle text-muted"> Year:</strong>  {{controller.vehicle.year}}</li>
-                        <li><strong class="card-subtitle text-muted"> Make:</strong>  {{controller.vehicle.make}}</li>
-                        <li><strong class="card-subtitle text-muted"> Model:</strong>  {{controller.vehicle.model}}</li>
-                        <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{controller.vehicle.trim}}</li>
-                        <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engSize}}</li>
-                    </ul>  
-            </div>
-        </div>
- 
-        <div>
-            <input type="button" class="btn btn-outline-danger" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
-        </div>
-
+<div class="cover-container">
+    <div class="container marketing">
+        <img ng-src="{{controller.vehicle.vehiceUrl}}" class="rounded mx-auto d-block" width="556" height="480" />
         <br />
+        <ul class="list-unstyled text-xs-center">
+            <li><strong class="card-subtitle text-muted"> Year:</strong>  {{controller.vehicle.year}}</li>
+            <li><strong class="card-subtitle text-muted"> Make:</strong>  {{controller.vehicle.make}}</li>
+            <li><strong class="card-subtitle text-muted"> Model:</strong>  {{controller.vehicle.model}}</li>
+            <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{controller.vehicle.trim}}</li>
+            <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engSize}}</li>
+        </ul>
+    </div>
+</div>
 
-       <!--Collapse Your Vehicle Inspection-->
+<div>
+    <input type="button" class="btn btn-outline-danger" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
+</div>
+
+<br />
+
+<!--Collapse Your Vehicle Inspection-->
 <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="card">
         <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     Your <strong class="card-subtitle text-muted">{{controller.vehicle.make}}</strong> Inspections
-</a>
+                </a>
             </h5>
         </div>
 
         <!--Collapse Your Vehicle Inspection Vehicle-->
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-block" ng-repeat="inspection in controller.vehicle.inspection">
+            <div class="form-check form-check-inline" ng-repeat="inspection in controller.vehicle.inspection">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4>Inspections</h4>
-                        Date: {{inspection.date | date: 'MMMM, d, yyyy'}}
-                        <br />
-                        Mileage: {{inspection.mileage}}
-                        <br />
-                        Brake: {{inspection.brake}}
-                        <br />
-                        Rotor: {{inspection.rotor}}
-                        <br />
-                        Tire: {{inspection.tire}}
-                        <br />
-                        Shock: {{inspection.shock}}
-                        <br />
-                        <br />
+                        <h4 class="display-4">Display 4</h4>
+                        <table class="table table-striped">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Part</th>
+                                    <th>Condition</th>
+                                    <th>Date </th>
+                                    <th>Mileage</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Air Filter</th>
+                                    <td>{{inspection.airFilter}}</td>
+                                    <td>{{inspection.date | date: 'MM, d, yy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Brake Lights</th>
+                                    <td>{{inspection.rearStopLights}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cabin Filter</th>
+                                    <td>{{inspection.cabinFilter}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Drive Belt</th>
+                                    <td>{{inspection.driveBelt}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Exhaust</th>
+                                    <td>{{inspection.exhaust}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Front Brakes</th>
+                                    <td>{{inspection.frontBrakes}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">Front Rotors</th>
+                                    <td>{{inspection.frontRotors}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Front Signals</th>
+                                    <td>{{inspection.frontSignals}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Front Suspension</th>
+                                    <td>{{inspection.frontSuspension}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Front Tires</th>
+                                    <td>{{inspection.frontTires}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Front Wheels</th>
+                                    <td>{{inspection.frontWheels}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Head Lights</th>
+                                    <td>{{inspection.frontHeadLights}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Horn</th>
+                                    <td>{{inspection.horn}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rear Brakes</th>
+                                    <td>{{inspection.rearBrakes}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rear Rotors</th>
+                                    <td>{{inspection.rearRotors}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>                                
+                                <tr>
+                                    <th scope="row">Rear Suspension</th>
+                                    <td>{{inspection.rearSuspension}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rear Tires</th>
+                                    <td>{{inspection.rearTires}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rear Wheels</th>
+                                    <td>{{inspection.rearWheels}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Steering</th>
+                                    <td>{{inspection.steering}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wipers</th>
+                                    <td>{{inspection.wiper}}</td>
+                                    <td>{{inspection.date | date: 'MMMM, d, yyyy'}}</td>
+                                    <td>{{inspection.mileage}}</td>
+                                </tr>   
+                            </tbody>
+                        </table>
+
+                        
                         <div>
                             <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
                         </div>
-                </div>
-                
-
+                    </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <h3>Edit Inspection</h3>
                             <form ng-submit="controller.editInspection(inspection)" class="form-group">
-                                
+
                                 <!--Edit Mileage-->
                                 <div class="input-group">
                                     <span class="input-group-btn">
@@ -82,12 +202,13 @@
                                     <span class="input-group-btn">
                                         <button class="btn btn-outline-secondary" type="button">Brakes Condition</button>
                                     </span>
-                                    <select class="custom-select form-control" ng-model="inspection.brake">  
+                                    <select class="custom-select form-control" ng-model="inspection.brake">
+                                       
                                         <option value="Good">Good</option>
                                         <option value="Fair">Fair</option>
                                         <option value="Replace">Replace</option>
                                         <option value="N/A">N/A</option>
-                                    </select>  
+                                    </select>
                                 </div>
                                 <br />
                                 <!--Edit Rotors-->
@@ -127,7 +248,7 @@
                                         <option value="Replace">Replace</option>
                                         <option value="N/A">N/A</option>
                                     </select>
-                                </div>                                
+                                </div>
                                 <br />
                                 <br />
                                 <input type="submit" value="Edit" class="btn btn-outline-info" />
@@ -139,7 +260,6 @@
             </div>
         </div>
     </div>
-
     <div class="card">
         <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0">
@@ -149,53 +269,196 @@
             </h5>
         </div>
     </div>
-
     <!--Collapse Add New Vehicle Inspection-->
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
         <div class="row">
-                <form ng-submit="controller.addInspection(inspection)">
-                    <div class="col-lg-2">
-                        <input type="text" ng-model="inspection.mileage" placeholder="Mileage" class="form-control" />
-                    </div>
-                    <div class="col-lg-2">
-                        <select class="custom-select" ng-model="inspection.brake">
-                            <option selected >Brakes</option>
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Replace">Replace</option>
-                            <option value="N/A">N/A</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <select class="custom-select" ng-model="inspection.rotor">
-                            <option selected >Rotors</option>
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Replace">Replace</option>
-                            <option value="N/A">N/A</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2" >
-                        <select class="custom-select" placeholder="Tires" ng-model="inspection.tire">
-                            <option selected>Tires</option>
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Replace">Replace</option>
-                            <option value="N/A">N/A</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <select placeholder="Shocks" class="custom-select" ng-model="inspection.shock">
-                            <!--<option selected >Shocks</option>-->
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Replace">Replace</option>
-                            <option value="N/A">N/A</option>
-                        </select>
-                    </div>
+            <form ng-submit="controller.addInspection(inspection)">
+                <div class="col-lg-6">
+                    <input type="text" ng-model="inspection.mileage" placeholder="Mileage" class="form-control" />
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.airFilter">
+                        <option selected>Air Filter</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.cabinFilter">
+                        <option selected>Cabin Filter</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" placeholder="Drive Belt" ng-model="inspection.driveBelt">
+                        <option selected>Tires</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.exhaust">
+                        <option selected >Exhaust</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontBrakes">
+                        <option selected >Front Brakes</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontHeadLights">
+                        <option selected >Headlights</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontRotors">
+                        <option selected >Front Rotors</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontSignals">
+                        <option selected >Front Turn Signals</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontSuspension">
+                        <option selected >Front Suspension</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontTires">
+                        <option selected >Front Tires</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.frontWheels">
+                        <option selected >Front Wheels</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.horn">
+                        <option selected >Horn</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearBrakes">
+                        <option selected >Rear Brakes</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearRotors">
+                        <option selected >Rear Rotors</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearStopLights">
+                        <option selected >Stop Lights</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearSuspension">
+                        <option selected >Rear Suspension</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearTires">
+                        <option selected >Rear Tires</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.rearWheels">
+                        <option selected >Rear Wheels</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.steering">
+                        <option selected >Steering</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <select class="custom-select" ng-model="inspection.wiper">
+                        <option selected >Wiper</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Replace">Replace</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
 
-                        <input type="submit"  class="btn btn-outline-info" />
-        </form>
-            </div>
-            </div>
+                <input type="submit" class="btn btn-outline-info" />
+            </form>
+        </div>
+    </div>
 </div>
