@@ -43,8 +43,8 @@
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="form-check form-check-inline" ng-repeat="inspection in controller.vehicle.inspection">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h4 class="display-4">Front Components</h4>
+                    <div class="col-lg-12">
+                        <h5>Front Components</h5>
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
@@ -102,13 +102,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div>
-                            <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
-                        </div>
                     </div>
                     <!--Back-end Inspection-->
-                    <div class="col-lg-6">
-                        <h4 class="display-4">Rear Components</h4>
+                    <div class="col-lg-12">
+                        <h5>Rear Components</h5>
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
@@ -151,14 +148,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div>
-                            <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
-                        </div>
                     </div>
-                    <hr class="featurette-divider" />
                     <!--Underhood Inspection-->
-                    <div class="col-lg-6">
-                        <h4 class="display-4">Hood Components</h4>
+                    <div class="col-lg-12">
+                        <h5>Hood Components</h5>
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
@@ -200,15 +193,10 @@
                                     <td>{{inspection.mileage}}</td>
                             </tbody>
                         </table>
-
-
-                        <div>
-                            <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
-                        </div>
                     </div>
                     <!--Under Inspections-->
-                    <div class="col-lg-6">
-                        <h4 class="display-4">Underneath</h4>
+                    <div class="col-lg-12">
+                        <h5>Underneath</h5>
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
@@ -245,22 +233,14 @@
                                 </tr>
                             </tbody>
                         </table>
-
-
                         <div>
                             <input type="button" class="btn btn-outline-danger" value="Delete Inspection" ng-click="controller.deleteInspection(inspection, inspection.id)" />
+                            <hr />
+                            <h4 class="display-4">Next Inspection, {{inspection.date | date: 'MMMM, d, yyyy'}}</h4>
+                            <hr />
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-                    <hr class="featurette-divider" />
+                    <hr />
                 </div>
             </div>
         </div>
@@ -281,352 +261,347 @@
                 <div class="col-lg-6">
                     <h4>Add Inspection</h4>
                     <form ng-submit="controller.addInspection(inspection)" class="form-group">
-
+                        <span class="input-group-addon form-control">Current Mileage</span>
+                        <input type="text" ng-model="inspection.mileage" placeholder="Enter Current Mileage" class="form-control" />
+                        <br />
+                        <span class="input-group-addon form-control">Air Filter</span>
+                        <select class="custom-select form-control" ng-model="inspection.airFilter">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Cabin Filter</span>
+                        <select class="custom-select form-control" ng-model="inspection.cabinFilter">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Driver Belt</span>
+                        <select class="custom-select form-control" placeholder="Drive Belt" ng-model="inspection.driveBelt">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Exhaust</span>
+                        <select class="custom-select form-control" ng-model="inspection.exhaust">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Brakes</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontBrakes">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Head Lights</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontHeadLights">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Rotors</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontRotors">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Turn Signals</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontSignals">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Suspension Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontSuspension">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Tires</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontTires">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Front Wheels</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontWheels">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Horn</span>
+                        <select class="custom-select form-control" ng-model="inspection.horn">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Brakes</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearBrakes">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Rotors</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearRotors">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Brake Lights</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearStopLights">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Suspension Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearSuspension">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Tires</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearTires">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Rear Wheels</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearWheels">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Steering Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.steering">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <span class="input-group-addon form-control">Wiper Blades</span>
+                        <select class="custom-select form-control" ng-model="inspection.wiper">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                        <br />
+                        <br />
+                        <input type="submit" class="btn btn-outline-info" />
+                    </form>
+                </div>
+<!--Edit Inspection--> <div class="col-lg-6">
+                    <h3>Edit Inspection</h3>
+                    <form ng-submit="controller.editInspection(inspection)" class="form-group">
                         <span class="input-group-addon form-control">Current Mileage</span>
                         <input type="text" ng-model="inspection.mileage" placeholder="Enter Current Mileage" class="form-control" />
                         <br />
                         <!--<div class="input-group">-->
-                            <span class="input-group-addon form-control">Air Filter</span>
-                            <select class="custom-select form-control" ng-model="inspection.airFilter">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Air Filter</span>
+                        <select class="custom-select form-control" ng-model="inspection.airFilter">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <!--</div>-->
-                            <br />
+                        <br />
                         <span class="input-group-addon form-control">Cabin Filter</span>
-                            <select class="custom-select form-control" ng-model="inspection.cabinFilter">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <select class="custom-select form-control" ng-model="inspection.cabinFilter">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
                         <span class="input-group-addon form-control">Driver Belt</span>
-                            <select class="custom-select form-control" placeholder="Drive Belt" ng-model="inspection.driveBelt">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <select class="custom-select form-control" placeholder="Drive Belt" ng-model="inspection.driveBelt">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
                         <span class="input-group-addon form-control">Exhaust</span>
-                            <select class="custom-select form-control" ng-model="inspection.exhaust">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <select class="custom-select form-control" ng-model="inspection.exhaust">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Brakes</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontBrakes">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Brakes</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontBrakes">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Head Lights</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontHeadLights">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Head Lights</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontHeadLights">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Rotors</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontRotors">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Rotors</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontRotors">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Turn Signals</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontSignals">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Turn Signals</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontSignals">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Suspension Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontSuspension">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Suspension Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontSuspension">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Tires</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontTires">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Tires</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontTires">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Front Wheels</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontWheels">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Front Wheels</span>
+                        <select class="custom-select form-control" ng-model="inspection.frontWheels">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Horn</span>
-                            <select class="custom-select form-control" ng-model="inspection.horn">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Horn</span>
+                        <select class="custom-select form-control" ng-model="inspection.horn">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Brakes</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearBrakes">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Brakes</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearBrakes">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Rotors</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearRotors">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Rotors</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearRotors">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Brake Lights</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearStopLights">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Brake Lights</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearStopLights">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Suspension Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearSuspension">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Suspension Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearSuspension">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Tires</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearTires">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Tires</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearTires">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Rear Wheels</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearWheels">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Rear Wheels</span>
+                        <select class="custom-select form-control" ng-model="inspection.rearWheels">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Steering Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.steering">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Steering Components</span>
+                        <select class="custom-select form-control" ng-model="inspection.steering">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
-                            <span class="input-group-addon form-control">Wiper Blades</span>
-                            <select class="custom-select form-control" ng-model="inspection.wiper">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                        <span class="input-group-addon form-control">Wiper Blades</span>
+                        <select class="custom-select form-control" ng-model="inspection.wiper">
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Replace">Replace</option>
+                            <option value="N/A">N/A</option>
+                        </select>
                         <br />
                         <br />
-                            <input type="submit" class="btn btn-outline-info" />
+
+                        <input type="submit" value="Edit" class="btn btn-outline-info" />
                     </form>
-                </div>
-<!--Edit Inspection-->
-
-                    <div class="col-lg-6">
-                        <h3>Edit Inspection</h3>
-                        <form ng-submit="controller.editInspection(inspection)" class="form-group">
-                            <span class="input-group-addon form-control">Current Mileage</span>
-                            <input type="text" ng-model="inspection.mileage" placeholder="Enter Current Mileage" class="form-control" />
-                            <br />
-                            <!--<div class="input-group">-->
-                            <span class="input-group-addon form-control">Air Filter</span>
-                            <select class="custom-select form-control" ng-model="inspection.airFilter">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <!--</div>-->
-                            <br />
-                            <span class="input-group-addon form-control">Cabin Filter</span>
-                            <select class="custom-select form-control" ng-model="inspection.cabinFilter">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Driver Belt</span>
-                            <select class="custom-select form-control" placeholder="Drive Belt" ng-model="inspection.driveBelt">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Exhaust</span>
-                            <select class="custom-select form-control" ng-model="inspection.exhaust">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Brakes</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontBrakes">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Head Lights</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontHeadLights">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Rotors</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontRotors">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Turn Signals</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontSignals">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Suspension Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontSuspension">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Tires</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontTires">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Front Wheels</span>
-                            <select class="custom-select form-control" ng-model="inspection.frontWheels">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Horn</span>
-                            <select class="custom-select form-control" ng-model="inspection.horn">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Brakes</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearBrakes">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Rotors</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearRotors">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Brake Lights</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearStopLights">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Suspension Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearSuspension">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Tires</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearTires">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Rear Wheels</span>
-                            <select class="custom-select form-control" ng-model="inspection.rearWheels">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Steering Components</span>
-                            <select class="custom-select form-control" ng-model="inspection.steering">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <span class="input-group-addon form-control">Wiper Blades</span>
-                            <select class="custom-select form-control" ng-model="inspection.wiper">
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                                <option value="Replace">Replace</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            <br />
-                            <br />
-
-                            <input type="submit" value="Edit" class="btn btn-outline-info" />
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
