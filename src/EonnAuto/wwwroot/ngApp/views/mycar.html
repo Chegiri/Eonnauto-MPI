@@ -1,8 +1,4 @@
-﻿<h4 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h4>
-
-
-
-<!--Modal-->
+﻿<!--Start Bootstrap v4 Modal For Adding new vehicle-->
 <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -44,60 +40,42 @@
         </div>
     </div>
 </div>
+<!--End Bootstrap v4 Modal For Adding new vehicle-->
 
-
-
-
-
-
+<!--Start Bootstrap v4 Jumbotron-->
 <section class="jumbotron text-xs-center">
     <div class="container">
         <h1 class="display-4">Start Managing Your Cars</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p class="lead text-muted">Doesnt even matter who's car it is, what Year, Make or Model, Grandma, Pop, Poo-Poo, EXCEPT stolen cars, register it all and start tracking and managing your MPI. Don't Pay twice for the same service b/c of lack of past records. Say bye bye to paper MPI and Welcome home to the new digital MPI babe!</p>
         <p>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add New Vehicle</button>
             <a href="/" class="btn btn-secondary">Back To Home</a>
         </p>
     </div>
 </section>
-               
+<!--End Bootstrap v4 Jumbotron-->
 <br />
 <br />
-    <div class="container marketing">
-        <div class="row" >
-            <div class="col-lg-4" ng-repeat="vehicle in controller.vehicles">
-                <img ng-src="{{vehicle.vehiceUrl}}" class="rounded" width="356" height="280"/>
-                <br />
-                <br />
-                
-                <ul class="list-unstyled">
-                    <li><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
-                    <li><strong class="card-subtitle text-muted"> Make:</strong>  {{vehicle.make}}</li>
-                    <li><strong class="card-subtitle text-muted"> Model:</strong>  {{vehicle.model}}</li>
-                    <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{vehicle.trim}}</li>
-                    <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{vehicle.engSize}}</li>
 
-                </ul>
-                
-                <a class="btn btn-outline-info" ui-sref="detail({id: vehicle.id})" role="button">View Inspections &raquo;</a>
-                
-                <hr class="featurette-divider" />
-            </div>
+<!--Start Bootstrap v4 Marketing-->
+<div class="container marketing">
+    <div class="row">
+        <div class="col-lg-4" ng-repeat="vehicle in controller.vehicles">
+            <img ng-src="{{vehicle.vehiceUrl}}" class="rounded" width="356" height="280" />
+            <br />
+            <br />
+            <ul class="list-group">
+                <li class="list-group-item active">Vehicle Detail</li>
+                <li class="list-group-item">Year: <strong class="lead"> {{vehicle.year}} </strong>  </li>
+                <li class="list-group-item">Make: <strong class="lead"> {{vehicle.make}}</strong>  </li>
+                <li class="list-group-item">Model: <strong class="lead"> {{vehicle.model}}</strong>  </li>
+                <li class="list-group-item">Trim: <strong class="lead"> {{vehicle.trim}}</strong>  </li>
+                <li class="list-group-item">Eng-Size: <strong class="lead"> {{vehicle.engSize}}</strong> </li>
+            </ul>
+            <br />
+            <a class="btn btn-outline-info" ui-sref="detail({id: vehicle.id})" role="button">View Inspections &raquo;</a>
+            <hr class="featurette-divider" />
         </div>
     </div>
-
-
-
-
-
-
-     
-
-        
-
-
-        
-
-
-
-
+</div>
+<!--End Bootstrap v4 Marketing-->

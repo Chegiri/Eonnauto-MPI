@@ -1,4 +1,5 @@
-﻿<section class="jumbotron text-xs-center">
+﻿<!--Start Bootstrap v4 Jumbotoron-->
+<section class="jumbotron text-xs-center">
     <div class="container">
         <h1 class="display-4">Your Vehicle Inspection History</h1>
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
@@ -8,33 +9,36 @@
         </p>
     </div>
 </section>
+<!--End Jumbotoron-->
+<!--Start Vehicle Details on Inspection Page-->
 <div class="cover-container">
     <div class="container marketing">
         <img ng-src="{{controller.vehicle.vehiceUrl}}" class="rounded mx-auto d-block" width="556" height="480" />
         <br />
-        <ul class="list-unstyled text-xs-center">
-            <li><strong class="card-subtitle text-muted"> Year:</strong>  {{controller.vehicle.year}}</li>
-            <li><strong class="card-subtitle text-muted"> Make:</strong>  {{controller.vehicle.make}}</li>
-            <li><strong class="card-subtitle text-muted"> Model:</strong>  {{controller.vehicle.model}}</li>
-            <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{controller.vehicle.trim}}</li>
-            <li><strong class="card-subtitle text-muted"> Eng-Size:</strong>  {{controller.vehicle.engSize}}</li>
+        <ul class="list-group col-md-6 offset-md-3">
+            <li class="list-group-item active">Vehicle Detail</li>
+            <li class="list-group-item">Year: <strong class="lead"> {{controller.vehicle.year}}</strong>  </li>
+            <li class="list-group-item">Make: <strong class="lead"> {{controller.vehicle.make}}</strong>  </li>
+            <li class="list-group-item">Model: <strong class="lead"> {{controller.vehicle.model}}</strong>  </li>
+            <li class="list-group-item">Trim: <strong class="lead"> {{controller.vehicle.trim}}</strong>  </li>
+            <li class="list-group-item">Eng-Size: <strong class="lead"> {{controller.vehicle.engSize}}</strong> </li>
         </ul>
+
     </div>
 </div>
-
+<br />
 <div>
     <input type="button" class="btn btn-outline-danger" value="Delete Vehicle" ng-click="controller.deleteVehicle()" />
 </div>
-
 <br />
-
-<!--Collapse Your Vehicle Inspection-->
+<!--End Vehicle Details on Inspection Page-->
+<!--Start Bootstrap v4 Collapse View, Add & Edit of Vehicle Inspection-->
 <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="card">
         <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Your <strong class="card-subtitle text-muted">{{controller.vehicle.make}}</strong> Inspections
+                <a class="collapsed lead" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Your {{controller.vehicle.year}} {{controller.vehicle.make}} {{controller.vehicle.model}} Inspection
                 </a>
             </h5>
         </div>
@@ -103,7 +107,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!--Back-end Inspection-->
                     <div class="col-lg-12">
                         <h5>Rear Components</h5>
                         <table class="table table-striped">
@@ -149,7 +152,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!--Underhood Inspection-->
                     <div class="col-lg-12">
                         <h5>Hood Components</h5>
                         <table class="table table-striped">
@@ -194,7 +196,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!--Under Inspections-->
                     <div class="col-lg-12">
                         <h5>Underneath</h5>
                         <table class="table table-striped">
@@ -245,15 +246,17 @@
             </div>
         </div>
     </div>
-    <div class="card">
+    <!--End Vehicle Details on Inspection Page-->
+    <!--Collapse Add New Vehicle Inspection and Eidt Inspection--><div class="card">
         <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Add New Inspection
+                <a class="collapsed lead" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Add New Inspection or Edit Previous Inspection
                 </a>
             </h5>
         </div>
     </div>
+
     <!--Collapse Add New Vehicle Inspection-->
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
         <div class="form-check form-check-inline">
@@ -428,13 +431,12 @@
                         <input type="submit" class="btn btn-outline-info" />
                     </form>
                 </div>
-<!--Edit Inspection--> <div class="col-lg-6">
+                <div class="col-lg-6">
                     <h3>Edit Inspection</h3>
                     <form ng-submit="controller.editInspection(inspection)" class="form-group">
                         <span class="input-group-addon form-control">Current Mileage</span>
                         <input type="text" ng-model="inspection.mileage" placeholder="Enter Current Mileage" class="form-control" />
                         <br />
-                        <!--<div class="input-group">-->
                         <span class="input-group-addon form-control">Air Filter</span>
                         <select class="custom-select form-control" ng-model="inspection.airFilter">
                             <option value="Good">Good</option>
@@ -442,7 +444,6 @@
                             <option value="Replace">Replace</option>
                             <option value="N/A">N/A</option>
                         </select>
-                        <!--</div>-->
                         <br />
                         <span class="input-group-addon form-control">Cabin Filter</span>
                         <select class="custom-select form-control" ng-model="inspection.cabinFilter">
@@ -597,11 +598,12 @@
                         </select>
                         <br />
                         <br />
-
                         <input type="submit" value="Edit" class="btn btn-outline-info" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!--End Add New Vehicle Inspection and Eidt Inspection-->
 </div>
+<!--End Bootstrap v4 Collapse View of Vehicle Inspection-->
