@@ -1,19 +1,21 @@
 ﻿<html ng-app="EonnAuto" lang="en">
 <head>
-    <!-- Start Required meta tags always come first -->
+    <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!--End meta tags-->
-    <!--Start Bootstrap CSS -->
+   
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <!--End Bootstrap v4 CSS-->
+
+
     <title>EonnAuto</title>
     <base href="/" />
-</head>
+
+    </head>
 <body ng-controller="AccountController as account">
 
-    <!--Start Bootstrap v4 collapse inverse-->
     <div class="navbar-collapse collapse inverse" id="navbar-header">
         <div class="container-fluid">
             <div class="row">
@@ -23,6 +25,7 @@
                         Eonnauto is a car management website that allows you store and track all your vehicle Multi-point inspections (MPI). Keeping track of your vehicle maintenance will help retain the value of your vehicle if you plan trading it in or selling it.
                     </p>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Contact</h4>
@@ -30,73 +33,69 @@
                             <li class="lead text-muted"><a href="/">Home</a></li>
                             <li class="lead text-muted"><a href="/about">About</a></li>
                             <li class="lead text-muted"><a href="/mycar">My Car</a></li>
-                            <li class="lead text-muted"><a href="/login" ng-show="!account.isLoggedIn()"><br /></a></li>
-                            <li class="lead text-muted"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                           
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--End Bootstrap v4 collapse inverse-->
     <div class="navbar navbar-static-top navbar-dark bg-inverse">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
             <a href="/" class="navbar-brand">EonnAuto</a>
+
         </div>
     </div>
-    <!--Start Show login-->
     <div>
-        <h6 ng-show="account.isLoggedIn()"> Welcome,<small class="text-muted"> {{account.getUserName()}} </small></h6>
+            <a href="/login" ng-show="!account.isLoggedIn()"><br /></a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div>
     </div>
-    <!--End Show login-->
-    
+
     <!--View-->
     <div class="container">
         <div class="starter-template">
             <ui-view></ui-view>
         </div>
     </div>
-    <!--End View-->
     <br />
     <hr />
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-xs-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <p>This websit is &copy; EonnAuto, not that we know the meaning of this icon " &copy; " but we just had to have it b/c every other website has it</p>
+                <p>New to EonnAuto? Good, you'll live longer when you know what you didnt know. Now you know, start sharing so you wont be left alone.</p>
+            </div>
+        </footer>
 
-    <!--Start Footer-->
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-xs-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>This websit is &copy; EonnAuto, not that we know the meaning of this icon " &copy; " but we just had to have it b/c every other website has it</p>
-            <p>New to EonnAuto? Good, you'll live longer when you know what you didnt know. Now you know, start sharing so you wont be left alone.</p>
-        </div>
-    </footer>
-    <!--End Footer-->
-   
-     <!--Start Bootstarp v4.0 latest version-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-    <!--End Bootstarp v4.0 latest version-->
-    
-    <!--Start Library Files -->
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/angular-touch/angular-touch.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <!--End Library Files -->
-    
-    <!--Start App Files-->
-    <script src="/ngapp/app.js"></script>
-    <script src="/ngapp/controllers/controllers.js"></script>
-    <script src="/ngapp/services/services.js"></script>
-    <!--End App Files-->
-    
-    <!--Start Security -->
-    <script src="/ngapp/controllers/accountcontroller.js"></script>
-    <script src="/ngapp/services/accountservice.js"></script>
-    <!--End Security -->
+        <!-- Bootstarp 4.0 latest version-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+
+        <!-- Library Files -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-resource/angular-resource.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-touch/angular-touch.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <!-- App Files-->
+        <script src="/ngapp/app.js"></script>
+        <script src="/ngapp/controllers/controllers.js"></script>
+        <script src="/ngapp/services/services.js"></script>
+
+
+        <!-- Security -->
+        <script src="/ngapp/controllers/accountcontroller.js"></script>
+        <script src="/ngapp/services/accountservice.js"></script>
+
 </body>
 </html>
