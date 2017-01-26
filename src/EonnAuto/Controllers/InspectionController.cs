@@ -22,6 +22,7 @@ namespace EonnAuto.Controllers
             _inspectionService = ins;
         }
         [HttpPost]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult Add([FromBody] InspectionDTO inspection, int id)
         {
             if (!ModelState.IsValid)
@@ -33,6 +34,7 @@ namespace EonnAuto.Controllers
             return Ok();
         }
         [HttpDelete("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult DeleteInspection(InspectionDTO Inspection, int id)
         {
             if (!ModelState.IsValid)
@@ -44,6 +46,7 @@ namespace EonnAuto.Controllers
             return Ok();
         }
         [HttpPut("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult Update([FromBody] InspectionDTO inspection)
         {
             if (!ModelState.IsValid)

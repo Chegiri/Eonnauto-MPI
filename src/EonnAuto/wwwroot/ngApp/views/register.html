@@ -28,14 +28,24 @@
     </ul>
     <br />
     <form class="form-horizontal" ng-submit="controller.register()">
+        
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">First Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"  placeholder="First Name" ng-model="controller.registerUser.firstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Last Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Last Name" ng-model="controller.registerUser.lastName" />
+            </div>
+        </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Email:</label>
-
             <div class="col-sm-10">
                 <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="controller.registerUser.email" />
-            </div>
-
-            
+            </div> 
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Password:</label>

@@ -1,6 +1,4 @@
-﻿<h4 ng-show="account.isLoggedIn()"> "Welcome, {{account.getUserName()}} !"</h4>
-
-
+﻿<h4 ng-show="account.isLoggedIn()"></h4>
 
 <!--Modal-->
 <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -13,9 +11,39 @@
 
                     <div class="form-group">
                         <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="Image" />
+                    </div>                
+                    
+                    <div class="form-group">
+                        <select class="form-control" >
+                            <option placeholder="Year" ng-model="controller.vehicle.year" ng-repeat="year in controller.years">{{year}}</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
+                        <select class="form-control" ng-model="controller.vehicle.make">
+                            <option placeholder="Make" ng-repeat="make in controller.makes">{{make}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" ng-model="controller.vehicle.model">
+                            <option placeholder="Model" ng-repeat="model in controller.models">{{model}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" ng-model="controller.vehicle.trim">
+                            <option placeholder="Trim" ng-repeat="trim in controller.trims">{{trim}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" ng-model="controller.vehicle.engSize">
+                            <option placeholder="Eng-Size" ng-repeat="engSize in controller.engSizes">{{engSize}}</option>
+                        </select>
+                    </div>                    
+
+                    <!--<div class="form-group">
                         <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="Year" />
                     </div>
 
@@ -33,7 +61,7 @@
 
                     <div class="form-group">
                         <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="Engsize" />
-                    </div>
+                    </div>-->
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -33,7 +33,8 @@
                             <li class="lead text-muted"><a href="/">Home</a></li>
                             <li class="lead text-muted"><a href="/about">About</a></li>
                             <li class="lead text-muted"><a href="/mycar">My Car</a></li>
-                           
+                           <li class="lead text-muted"><a href="/login" ng-show="!account.isLoggedIn()"><br /></a></li>
+                            <li class="lead text-muted"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,13 +48,9 @@
 
         </div>
     </div>
-    <div>
-            <a href="/login" ng-show="!account.isLoggedIn()"><br /></a>
-            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-            <div ng-show="account.isLoggedIn()">
+    <div ng-show="account.isLoggedIn()">
                 [{{account.getUserName()}}]
             </div>
-    </div>
 
     <!--View-->
     <div class="container">
