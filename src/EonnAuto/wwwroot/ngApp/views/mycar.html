@@ -3,75 +3,57 @@
 <!--Modal-->
 <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
-        <div class="modal-content">
+        <div class="modal-content bd-example-modal-sm ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Add New Vehicle</h4>
-                <form ng-submit="controller.save()">
-
+            </div>
+            <form ng-submit="controller.save()" ng-click="reload()">
+                <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" ng-model="controller.vehicle.vehiceUrl" placeholder="Image" />
-                    </div>                
-                    
+                    </div>
+
                     <div class="form-group">
-                        <select class="form-control" >
-                            <option placeholder="Year" ng-model="controller.vehicle.year" ng-repeat="year in controller.years">{{year}}</option>
+                        <select class="form-control" ng-model="controller.vehicle.year">
+                            <option placeholder="Year" ng-repeat="year in controller.years">{{year}}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.make">
-                            <option placeholder="Make" ng-repeat="make in controller.makes">{{make}}</option>
+                        <select class="form-control" ng-model="car.make" ng-options="car.make for car in controller.cars">
+                            <!--<option placeholder="Make" ng-repeat="car in controller.makes">{{make}}</option>-->
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.model">
-                            <option placeholder="Model" ng-repeat="model in controller.models">{{model}}</option>
+                        <select class="form-control" ng-model="models.name" ng-options="car.models for car in controller.cars">
+                            <!--<option placeholder="Model" ng-repeat="car in controller.model">{{models}}</option>-->
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.trim">
-                            <option placeholder="Trim" ng-repeat="trim in controller.trims">{{trim}}</option>
+                        <select class="form-control" ng-model="controller.vehicle.car.trim">
+                            <option placeholder="Trim" ng-repeat="car in controller.car.make.model.trims">{{car.trim}}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.engSize">
-                            <option placeholder="Eng-Size" ng-repeat="engSize in controller.engSizes">{{engSize}}</option>
+                        <select class="form-control" ng-model="controller.vehicle.car.engSize">
+                            <option placeholder="Eng-Size" ng-repeat="car in controller.car.make.model.trim.engSizes">{{car.engSize}}</option>
                         </select>
-                    </div>                    
-
-                    <!--<div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.year" placeholder="Year" />
                     </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.make" placeholder="Make" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.model" placeholder="Model" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.trim" placeholder="Trim" />
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="controller.vehicle.engsize" placeholder="Engsize" />
-                    </div>-->
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" value="Save Vehicle" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit"  ng-class="reload()" value="Save Vehicle" class="btn btn-primary"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+
 
 
 
@@ -88,43 +70,43 @@
         </p>
     </div>
 </section>
-               
-<br />
-<br />
-    <div class="container marketing">
-        <div class="row" >
-            <div class="col-lg-4" ng-repeat="vehicle in controller.vehicles">
-                <img ng-src="{{vehicle.vehiceUrl}}" class="rounded" width="356" height="280"/>
-                <br />
-                <br />
-                
-                <ul class="list-unstyled">
-                    <li><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
-                    <li><strong class="card-subtitle text-muted"> Make:</strong>  {{vehicle.make}}</li>
-                    <li><strong class="card-subtitle text-muted"> Model:</strong>  {{vehicle.model}}</li>
-                    <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{vehicle.trim}}</li>
-                    <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{vehicle.engSize}}</li>
 
-                </ul>
-                
-                <a class="btn btn-outline-info" ui-sref="detail({id: vehicle.id})" role="button">View Inspections &raquo;</a>
-                
-                <hr class="featurette-divider" />
-            </div>
+<br />
+<br />
+<div class="container marketing">
+    <div class="row">
+        <div class="col-lg-4" ng-repeat="car in controller.cars">
+            <img ng-src="{{car.vehiceUrl}}" class="rounded" width="356" height="280" />
+            <br />
+            <br />
+
+            <ul class="list-unstyled">
+                <li  ng-model="controller.vehicle.year"><strong class="card-subtitle text-muted"> Year:</strong>  {{year}}</li>
+                <li><strong class="card-subtitle text-muted"> Make:</strong>  {{car.make}}</li>
+                <li><strong class="card-subtitle text-muted"> Model:</strong>  {{car.name}}</li>
+                <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{make.car.trims}}</li>
+                <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{car.engSize}}</li>
+
+            </ul>
+
+            <a class="btn btn-outline-info" ui-sref="detail({id: vehicle.id})" role="button">View Inspections &raquo;</a>
+
+            <hr class="featurette-divider" />
         </div>
     </div>
+</div>
 
 
 
 
 
 
-     
-
-        
 
 
-        
+
+
+
+
 
 
 
