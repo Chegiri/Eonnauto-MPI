@@ -19,34 +19,53 @@ namespace EonnAuto.Controllers {
         public vehicle;
         public inspection;
         public years;
-        public makes;
-        public models;
-        public trims;
-        public engSizes;
+        public cars;
+        //public models;
+        //public trims;
+        //public engSizes;
 
         public getVehicles() {
             this.vehicles = this.VehicleService.listVehicles();
         }
 
         public save() {
-            this.VehicleService.save(this.vehicle);
+            this.VehicleService.save
+                (this.vehicle);
             this.$state.reload();
-
         }
 
         constructor(
 
             private VehicleService: EonnAuto.Services.VehicleService,
             private $state: ng.ui.IStateService,
+            private $uibModal: angular.ui.bootstrap.IModalServiceInstance,
             private $stateParams:
                 ng.ui.IStateParamsService) {
 
             this.years = [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
-            this.makes = ["Acura", "Audi", "BMW", "M-Benz", "Porsche", "Tesla"];
-            this.models = ["MDX", "TL", "Q6", "A7", "ML", "CLK", "Cayenne", "911", "Model-S", "Model-3"]
-            this.trims = ["Technology", "Base", "S-Line", "Advanced", "320", "S", "T-Sportline"]
-            this.engSizes = ["2.4Cyl", "3.2Cyl", "3.6Cyl", "5.6Cyl", "6.8Cyl"]
-            this.getVehicles();
+            this.cars = [
+                {
+                    make: 'Acura',
+                    models: [
+                        { name: 'TL', trims: ['Sports', 'Technology'], engSizes: ['3.2Cly', '3.6Cly'] },
+                        { name: 'MDX', trims: ['Advanced', 'Base'], engSize: ['6.8Cly', '3.4Cly'] }
+                    ]
+                },
+                {
+                    make: 'M-Benz',
+                    models: [
+                        { name: 'C-class', trims: ['320', 'Base'], engsizes: ['2.4Cly', '5.8Cly'] },
+                        { name: 'G-class', trims: ['450', 'Advanced'], engsizes: ['8.5Cly', '5.8Cly'] }
+                    ],
+                },
+            ];
+
+
+            //this.makes = ["Acura", "Audi", "BMW", "M-Benz", "Porsche", "Tesla"];
+            //this.models = ["MDX", "TL", "Q6", "A7", "ML", "CLK", "Cayenne", "911", "Model-S", "Model-3"]
+            //this.trims = ["Technology", "Base", "S-Line", "Advanced", "320", "S", "T-Sportline"]
+            //this.engSizes = ["2.4Cyl", "3.2Cyl", "3.6Cyl", "5.6Cyl", "6.8Cyl"]
+            //this.getVehicles();
         }
     }
     export class AboutController {
