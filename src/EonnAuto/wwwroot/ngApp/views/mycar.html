@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="model.name">
-                            <option placeholder="Model" ng-repeat="model in car.make.models">{{model.name}}</option>
+                        <select class="form-control" ng-model="model.name" ng-options="model.name for model in car.make.models"> 
+                            <!--<option placeholder="Model" ng-repeat="model in car.make.models">{{model.name}}</option>-->
                         </select>
                     </div>
 
