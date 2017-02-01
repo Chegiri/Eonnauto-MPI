@@ -25,33 +25,27 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="model.name" ng-options="model.name for model in controller.vehicle.make.models">
-                            <!--<option placeholder="Model" ng-repeat="model in car.make.models">{{model.name}}</option>-->
+                        <select class="form-control" ng-model="controller.vehicle.model" ng-options="model.name for model in controller.vehicle.make.models">
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <!--commented code is E's original that I didn't delete-->
-                        <!--<select class="form-control" ng-model="model.trim" ng-options="car.model.name group by car.name.trims for car in controller.cars">
-                        </select>-->
-                        <select class="form-control" ng-model="model.trim">
+                        <select class="form-control" ng-model="controller.vehicle.trim">
                             <option ng-repeat="trim in model.name.trims">
-                                {{trim}}
+                                {{models.trim}}
                             </option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <!--commented code is E's original that I didn't delete-->
-                        <!--<select class="form-control" ng-model="model.engSize" ng-options="model.engSize for engSizes in controller.cars">-->
-                        <select class="form-control" ng-model="model.engSize">
-                            <option placeholder="Eng-Size" ng-repeat="engSize in model.name.engSizes">{{engSize}}</option>
+                        <select class="form-control" ng-model="controller.vehicle.engSize">
+                            <option placeholder="Eng-Size" ng-repeat="engSize in model.name.engSizes">{{models.engSize}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" ng-class="reload()" value="Save Vehicle" class="btn btn-primary" />
+                    <input type="submit" ng-submit="controller.save()" ng-class="reload()" value="Save Vehicle" class="btn btn-primary" />
                 </div>
             </form>
         </div>
@@ -80,17 +74,17 @@
 <br />
 <div class="container marketing">
     <div class="row">
-        <div class="col-lg-4" ng-repeat="car in controller.cars">
+        <div class="col-lg-4" ng-repeat="vehicle in controller.vehicles">
             <img ng-src="{{car.vehiceUrl}}" class="rounded" width="356" height="280" />
             <br />
             <br />
 
             <ul class="list-unstyled">
                 <li><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
-                <li><strong class="card-subtitle text-muted"> Make:</strong>  {{car.make}}</li>
-                <li><strong class="card-subtitle text-muted"> Model:</strong>  {{car.models.name}}</li>
-                <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{make.car.trims}}</li>
-                <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{car.engSize}}</li>
+                <li><strong class="card-subtitle text-muted"> Make:</strong>  {{vehicle.make}}</li>
+                <li><strong class="card-subtitle text-muted"> Model:</strong>  {{vehicle.model}}</li>
+                <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{vehicle.trim}}</li>
+                <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{vehicle.engSize}}</li>
 
             </ul>
 

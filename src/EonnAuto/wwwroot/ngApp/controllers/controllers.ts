@@ -48,24 +48,18 @@ namespace EonnAuto.Controllers {
                     make: 'Acura',
                     models: [
                         { name: 'TL', trims: ['Sports', 'Technology'], engSizes: ['3.2Cly', '3.6Cly'] },
-                        { name: 'MDX', trims: ['Advanced', 'Base'], engSize: ['6.8Cly', '3.4Cly'] }
+                        { name: 'MDX', trims: ['Advanced', 'Base'], engSizes: ['6.8Cly', '3.4Cly'] }
                     ]
                 },
                 {
                     make: 'M-Benz',
                     models: [
-                        { name: 'C-class', trims: ['320', 'Base'], engsizes: ['2.4Cly', '5.8Cly'] },
+                        { name: 'C-class', trims: ['320', 'Base'], engSizes: ['2.4Cly', '5.8Cly'] },
                         { name: 'G-class', trims: ['450', 'Advanced'], engsizes: ['8.5Cly', '5.8Cly'] }
                     ],
                 },
             ];
-
-
-            //this.makes = ["Acura", "Audi", "BMW", "M-Benz", "Porsche", "Tesla"];
-            //this.models = ["MDX", "TL", "Q6", "A7", "ML", "CLK", "Cayenne", "911", "Model-S", "Model-3"]
-            //this.trims = ["Technology", "Base", "S-Line", "Advanced", "320", "S", "T-Sportline"]
-            //this.engSizes = ["2.4Cyl", "3.2Cyl", "3.6Cyl", "5.6Cyl", "6.8Cyl"]
-            //this.getVehicles();
+            this.getVehicles();
         }
     }
     export class AboutController {
