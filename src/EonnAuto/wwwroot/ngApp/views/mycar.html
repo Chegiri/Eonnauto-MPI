@@ -23,20 +23,20 @@
                     <div class="form-group">
                         <select class="form-control" ng-model="controller.vehicle.make" ng-options="car.make for car in controller.cars"></select>
                         <!--<select class="form-control" ng-model="controller.vehicle.make">
-                            <option ng-repeat="vehicle in controller.cars">
+                            <option ng-repeat="vehicle in controller.cars" ng-value="{{vehicle.make}}">
                                 {{vehicle.make}}
                             </option>
                         </select>-->
                     </div>
 
                     <div class="form-group">
-                        <!--<select class="form-control" ng-model="controller.vehicle.model" ng-options="model.name for model in controller.vehicle.make.models">
-                        </select>-->
-                        <select class="form-control" ng-model="controller.vehicle.model">
-                            <option ng-repeat="model in controller.vehicle.make.models">
+                        <select class="form-control" ng-model="controller.vehicle.model" ng-options="model.name for model in controller.vehicle.make.models">
+                        </select>
+                        <!--<select class="form-control" ng-model="controller.vehicle.model">
+                            <option ng-repeat="model in vehicle.make.models" value="{{model.name}}">
                                 {{model.name}}
                             </option>
-                        </select>
+                        </select>-->
                     </div>
 
                     <div class="form-group">
