@@ -32,13 +32,13 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.trim" ng-options="car.models for car in controller.cars">
+                        <select class="form-control" ng-model="model.trim" ng-options="car.model.name group by car.name.trims for car in controller.cars">
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.engSize">
-                            <option placeholder="Eng-Size" ng-repeat="car in controller.car.make.model.trim.engSizes">{{car.engSize}}</option>
+                        <select class="form-control" ng-model="model.engSize" ng-options="model.engSize for engSizes in controller.cars">
+                            <!--<option placeholder="Eng-Size" ng-repeat="car in controller.car.make.model.trim.engSizes">{{car.engSize}}</option>-->
                         </select>
                     </div>
                 </div>
@@ -79,9 +79,9 @@
             <br />
 
             <ul class="list-unstyled">
-                <li  ng-model="controller.vehicle.year"><strong class="card-subtitle text-muted"> Year:</strong>  {{year}}</li>
+                <li ><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
                 <li><strong class="card-subtitle text-muted"> Make:</strong>  {{car.make}}</li>
-                <li><strong class="card-subtitle text-muted"> Model:</strong>  {{car.name}}</li>
+                <li><strong class="card-subtitle text-muted"> Model:</strong>  {{car.models.name}}</li>
                 <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{make.car.trims}}</li>
                 <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{car.engSize}}</li>
 
