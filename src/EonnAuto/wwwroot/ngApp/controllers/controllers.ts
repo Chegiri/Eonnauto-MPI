@@ -31,6 +31,7 @@ namespace EonnAuto.Controllers {
         public save() {
             this.VehicleService.save
                 (this.vehicle);
+            console.log(this.vehicle);
             this.$state.reload();
         }
 
@@ -55,7 +56,7 @@ namespace EonnAuto.Controllers {
                     make: 'M-Benz',
                     models: [
                         { name: 'C-class', trims: ['320', 'Base'], engSizes: ['2.4Cly', '5.8Cly'] },
-                        { name: 'G-class', trims: ['450', 'Advanced'], engsizes: ['8.5Cly', '5.8Cly'] }
+                        { name: 'G-class', trims: ['450', 'Advanced'], engSizes: ['8.5Cly', '5.8Cly'] }
                     ],
                 },
             ];
