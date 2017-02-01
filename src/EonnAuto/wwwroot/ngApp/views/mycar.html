@@ -21,30 +21,37 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.make" ng-options="car.make for car in controller.cars">
-                        </select>
+                        <select class="form-control" ng-model="controller.vehicle.make" ng-options="car.make for car in controller.cars"></select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="model.name" ng-options="model.name for model in controller.vehicle.make.models"> 
+                        <select class="form-control" ng-model="model.name" ng-options="model.name for model in controller.vehicle.make.models">
                             <!--<option placeholder="Model" ng-repeat="model in car.make.models">{{model.name}}</option>-->
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="model.trim" ng-options="car.model.name group by car.name.trims for car in controller.cars">
+                        <!--commented code is E's original that I didn't delete-->
+                        <!--<select class="form-control" ng-model="model.trim" ng-options="car.model.name group by car.name.trims for car in controller.cars">
+                        </select>-->
+                        <select class="form-control" ng-model="model.trim">
+                            <option ng-repeat="trim in model.name.trims">
+                                {{trim}}
+                            </option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="model.engSize" ng-options="model.engSize for engSizes in controller.cars">
-                            <!--<option placeholder="Eng-Size" ng-repeat="car in controller.car.make.model.trim.engSizes">{{car.engSize}}</option>-->
+                        <!--commented code is E's original that I didn't delete-->
+                        <!--<select class="form-control" ng-model="model.engSize" ng-options="model.engSize for engSizes in controller.cars">-->
+                        <select class="form-control" ng-model="model.engSize">
+                            <option placeholder="Eng-Size" ng-repeat="engSize in model.name.engSizes">{{engSize}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit"  ng-class="reload()" value="Save Vehicle" class="btn btn-primary"/>
+                    <input type="submit" ng-class="reload()" value="Save Vehicle" class="btn btn-primary" />
                 </div>
             </form>
         </div>
@@ -79,7 +86,7 @@
             <br />
 
             <ul class="list-unstyled">
-                <li ><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
+                <li><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
                 <li><strong class="card-subtitle text-muted"> Make:</strong>  {{car.make}}</li>
                 <li><strong class="card-subtitle text-muted"> Model:</strong>  {{car.models.name}}</li>
                 <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{make.car.trims}}</li>
