@@ -23,6 +23,7 @@ namespace EonnAuto.Controllers
             _inspectionService = ins;
         }
 
+
         [HttpGet("{id}")]
         [Authorize]
         

@@ -18,6 +18,7 @@ namespace EonnAuto.Models
         public string Model { get; set; }
         public string Trim { get; set; }
         public string EngSize { get; set; }
+  
 
         public ICollection<Inspection> Inspections { get; set; }
     }

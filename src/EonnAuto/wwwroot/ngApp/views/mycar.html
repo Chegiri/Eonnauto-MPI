@@ -1,5 +1,4 @@
 ﻿<h4 ng-show="account.isLoggedIn()"></h4>
-
 <!--Modal-->
 <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -30,8 +29,7 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" ng-model="controller.vehicle.model" ng-options="model.name for model in controller.vehicle.make.models">
-                        </select>
+                        <select class="form-control" ng-model="controller.vehicle.model" ng-options="model.name for model in controller.vehicle.make.models"></select>
                         <!--<select class="form-control" ng-model="controller.vehicle.model">
                             <option ng-repeat="model in vehicle.make.models" value="{{model.name}}">
                                 {{model.name}}
@@ -61,18 +59,10 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 <section class="jumbotron text-xs-center">
     <div class="container">
         <h1 class="display-4">Start Managing Your Cars</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p class="lead text-muted"> If your tired of not been able to keep track of all your vehicle maintenance, then your in the right place. Eonnauto platform helps you do just that. So register your vehicle and start tracking your MPI.</p>
         <p>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add New Vehicle</button>
             <a href="/" class="btn btn-secondary">Back To Home</a>
@@ -88,35 +78,15 @@
             <img ng-src="{{vehicle.vehiceUrl}}" class="rounded" width="356" height="280" />
             <br />
             <br />
-
             <ul class="list-unstyled">
                 <li><strong class="card-subtitle text-muted"> Year:</strong>  {{vehicle.year}}</li>
                 <li><strong class="card-subtitle text-muted"> Make:</strong>  {{vehicle.make}}</li>
                 <li><strong class="card-subtitle text-muted"> Model:</strong>  {{vehicle.model}}</li>
                 <li><strong class="card-subtitle text-muted"> Trim:</strong>  {{vehicle.trim}}</li>
                 <li><strong class="card-subtitle text-muted"> Eng-Size:</strong> {{vehicle.engSize}}</li>
-
             </ul>
-
             <a class="btn btn-outline-info" ui-sref="detail({id: vehicle.id})" role="button">View Inspections &raquo;</a>
-
             <hr class="featurette-divider" />
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
